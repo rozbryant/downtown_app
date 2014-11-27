@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Active resource:
+  # CREATE
+  get('/actives/new', { :controller => 'actives', :action => 'new' })
+  get('/create_active', { :controller => 'actives', :action => 'create' })
+
+  # READ
+  get('/actives', { :controller => 'actives', :action => 'index' })
+  get('/actives/:id', { :controller => 'actives', :action => 'show' })
+
+  # UPDATE
+  get('/actives/:id/edit', { :controller => 'actives', :action => 'edit' })
+  get('/update_active/:id', { :controller => 'actives', :action => 'update' })
+
+  # DELETE
+  get('/delete_active/:id', { :controller => 'actives', :action => 'destroy' })
+  #------------------------------
+
   # Routes for the Assignment resource:
   # CREATE
   get('/assignments/new', { :controller => 'assignments', :action => 'new' })

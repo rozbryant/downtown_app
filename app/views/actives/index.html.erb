@@ -1,0 +1,56 @@
+<div class="page-header">
+  <h1>Actives</h1>
+</div>
+
+<p><a href="/actives/new" class="btn btn-primary">Add a New Active</a></p>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Building</th>
+      <th>Fitness</th>
+      <th>In pool</th>
+      <th>Out pool</th>
+      <th>In tennis</th>
+      <th>Out tennis</th>
+      <th>Bball</th>
+      <th>Spa</th>
+      <th>Note</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @actives.each do |active| %>
+      <tr>
+        <td><%= active.building_id %></td>
+        <td><%= active.fitness %></td>
+        <td><%= active.in_pool %></td>
+        <td><%= active.out_pool %></td>
+        <td><%= active.in_tennis %></td>
+        <td><%= active.out_tennis %></td>
+        <td><%= active.bball %></td>
+        <td><%= active.spa %></td>
+        <td><%= active.note %></td>
+        <td>
+          <a href="/actives/<%= active.id %>" class="btn btn-primary">
+            <i class="fa fa-search-plus"></i>
+          </a>
+        </td>
+        <td>
+          <a href="/actives/<%= active.id %>/edit" class="btn btn-warning">
+            <i class="fa fa-edit"></i>
+          </a>
+        </td>
+        <td>
+          <a href="/delete_active/<%= active.id %>" class="btn btn-danger">
+            <i class="fa fa-trash-o"></i>
+          </a>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
