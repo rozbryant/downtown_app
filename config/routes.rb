@@ -1,4 +1,38 @@
 Rails.application.routes.draw do
+  # Routes for the Space resource:
+  # CREATE
+  get('/spaces/new', { :controller => 'spaces', :action => 'new' })
+  get('/create_space', { :controller => 'spaces', :action => 'create' })
+
+  # READ
+  get('/spaces', { :controller => 'spaces', :action => 'index' })
+  get('/spaces/:id', { :controller => 'spaces', :action => 'show' })
+
+  # UPDATE
+  get('/spaces/:id/edit', { :controller => 'spaces', :action => 'edit' })
+  get('/update_space/:id', { :controller => 'spaces', :action => 'update' })
+
+  # DELETE
+  get('/delete_space/:id', { :controller => 'spaces', :action => 'destroy' })
+  #------------------------------
+
+  # Routes for the Building resource:
+  # CREATE
+  get('/buildings/new', { :controller => 'buildings', :action => 'new' })
+  get('/create_building', { :controller => 'buildings', :action => 'create' })
+
+  # READ
+  get('/buildings', { :controller => 'buildings', :action => 'index' })
+  get('/buildings/:id', { :controller => 'buildings', :action => 'show' })
+
+  # UPDATE
+  get('/buildings/:id/edit', { :controller => 'buildings', :action => 'edit' })
+  get('/update_building/:id', { :controller => 'buildings', :action => 'update' })
+
+  # DELETE
+  get('/delete_building/:id', { :controller => 'buildings', :action => 'destroy' })
+  #------------------------------
+
   # Routes for the Restriction resource:
   # CREATE
   get('/restrictions/new', { :controller => 'restrictions', :action => 'new' })
@@ -48,23 +82,6 @@ Rails.application.routes.draw do
 
   # DELETE
   get('/delete_service/:id', { :controller => 'services', :action => 'destroy' })
-  #------------------------------
-
-  # Routes for the Space resource:
-  # CREATE
-  get('/spaces/new', { :controller => 'spaces', :action => 'new' })
-  get('/create_space', { :controller => 'spaces', :action => 'create' })
-
-  # READ
-  get('/spaces', { :controller => 'spaces', :action => 'index' })
-  get('/spaces/:id', { :controller => 'spaces', :action => 'show' })
-
-  # UPDATE
-  get('/spaces/:id/edit', { :controller => 'spaces', :action => 'edit' })
-  get('/update_space/:id', { :controller => 'spaces', :action => 'update' })
-
-  # DELETE
-  get('/delete_space/:id', { :controller => 'spaces', :action => 'destroy' })
   #------------------------------
 
   # Routes for the Active resource:
@@ -184,23 +201,6 @@ Rails.application.routes.draw do
 
   # DELETE
   get('/delete_user/:id', { :controller => 'users', :action => 'destroy' })
-  #------------------------------
-
-  # Routes for the Building resource:
-  # CREATE
-  get('/buildings/new', { :controller => 'buildings', :action => 'new' })
-  get('/create_building', { :controller => 'buildings', :action => 'create' })
-
-  # READ
-  get('/buildings', { :controller => 'buildings', :action => 'index' })
-  get('/buildings/:id', { :controller => 'buildings', :action => 'show' })
-
-  # UPDATE
-  get('/buildings/:id/edit', { :controller => 'buildings', :action => 'edit' })
-  get('/update_building/:id', { :controller => 'buildings', :action => 'update' })
-
-  # DELETE
-  get('/delete_building/:id', { :controller => 'buildings', :action => 'destroy' })
   #------------------------------
 
   # The priority is based upon order of creation: first created -> highest priority.

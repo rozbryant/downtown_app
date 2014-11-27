@@ -15,7 +15,7 @@ class SpacesController < ApplicationController
     @space = Space.new
     @space.building_id = params[:building_id]
     @space.storage = params[:storage]
-    @space.bike_storage_boolean = params[:bike_storage_boolean]
+    @space.bike_storage = params[:bike_storage]
     @space.party_room = params[:party_room]
     @space.sundeck = params[:sundeck]
     @space.parking_leased = params[:parking_leased]
@@ -47,7 +47,7 @@ class SpacesController < ApplicationController
 
     @space.building_id = params[:building_id]
     @space.storage = params[:storage]
-    @space.bike_storage_boolean = params[:bike_storage_boolean]
+    @space.bike_storage = params[:bike_storage]
     @space.party_room = params[:party_room]
     @space.sundeck = params[:sundeck]
     @space.parking_leased = params[:parking_leased]

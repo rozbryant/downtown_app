@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141127090334) do
+ActiveRecord::Schema.define(version: 20141127112027) do
 
   create_table "actives", force: true do |t|
     t.integer  "building_id"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20141127090334) do
   end
 
   create_table "buildings", force: true do |t|
+    t.string   "image_url"
     t.string   "name"
     t.string   "address"
     t.string   "city"
@@ -128,7 +129,7 @@ ActiveRecord::Schema.define(version: 20141127090334) do
   create_table "spaces", force: true do |t|
     t.integer  "building_id"
     t.boolean  "storage"
-    t.string   "bike_storage_boolean"
+    t.boolean  "bike_storage"
     t.boolean  "party_room"
     t.boolean  "sundeck"
     t.boolean  "parking_leased"

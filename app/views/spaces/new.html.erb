@@ -36,13 +36,15 @@
         </div>
       </div>
 
-      <!-- Label and input for bike_storage_boolean -->
+      <!-- Label and input for bike_storage -->
       <div class="form-group">
-        <label for="bike_storage_boolean" class="col-sm-2 control-label">
-          Bike storage boolean
-        </label>
-        <div class="col-sm-10">
-          <input type="text" id="bike_storage_boolean" name="bike_storage_boolean" placeholder="Bike storage boolean" class="form-control" value="<%= @space.bike_storage_boolean %>">
+        <div class="col-sm-offset-2 col-sm-10">
+          <div class="checkbox">
+            <label for="bike_storage">
+              <input type="checkbox" id="bike_storage" name="bike_storage" value="1" <%= "checked" if @space.bike_storage %>>
+              Bike storage
+            </label>
+          </div>
         </div>
       </div>
 
@@ -251,13 +253,15 @@
             </div>
           </div>
 
-          <!-- Label and input for bike_storage_boolean -->
+          <!-- Label and input for bike_storage -->
           <div class="form-group">
-            <label for="bike_storage_boolean" class="col-sm-2 control-label">
-              Bike storage boolean
-            </label>
-            <div class="col-sm-10">
-              <input type="text" id="bike_storage_boolean" name="bike_storage_boolean" placeholder="Bike storage boolean" class="form-control" value="<%= @space.bike_storage_boolean %>">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="checkbox">
+                <label for="bike_storage">
+                  <input type="checkbox" id="bike_storage" name="bike_storage" value="1" <%= "checked" if @space.bike_storage %>>
+                  Bike storage
+                </label>
+              </div>
             </div>
           </div>
 

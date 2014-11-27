@@ -13,6 +13,7 @@ class BuildingsController < ApplicationController
 
   def create
     @building = Building.new
+    @building.image_url = params[:image_url]
     @building.name = params[:name]
     @building.address = params[:address]
     @building.city = params[:city]
@@ -34,6 +35,7 @@ class BuildingsController < ApplicationController
   def update
     @building = Building.find(params[:id])
 
+    @building.image_url = params[:image_url]
     @building.name = params[:name]
     @building.address = params[:address]
     @building.city = params[:city]

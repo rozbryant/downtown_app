@@ -7,6 +7,7 @@
 <table class="table table-hover">
   <thead>
     <tr>
+      <th>Image url</th>
       <th>Name</th>
       <th>Address</th>
       <th>City</th>
@@ -22,6 +23,7 @@
   <tbody>
     <% @buildings.each do |building| %>
       <tr>
+        <td><%= building.image_url %></td>
         <td><%= building.name %></td>
         <td><%= building.address %></td>
         <td><%= building.city %></td>

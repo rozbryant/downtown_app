@@ -22,7 +22,4 @@ class Building < ActiveRecord::Base
   validates :state,       :presence => true
   validates :zip,         :presence => true
 
-
-
-
 end

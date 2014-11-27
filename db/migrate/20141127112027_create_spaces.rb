@@ -3,7 +3,7 @@ class CreateSpaces < ActiveRecord::Migration
     create_table :spaces do |t|
       t.integer :building_id
       t.boolean :storage
-      t.string :bike_storage_boolean
+      t.boolean :bike_storage
       t.boolean :party_room
       t.boolean :sundeck
       t.boolean :parking_leased
