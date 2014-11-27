@@ -4,5 +4,11 @@ class User < ActiveRecord::Base
   has_many(:followings,   { :class_name => "Following", :foreign_key => "follower_id" })
   has_many(:favoritings,  { :class_name => "Favoriting", :foreign_key => "favorited_by" })
 
+#Validations
+
+  validates :name, :presence => true
+  validates :name, :uniqueness => true
+
+
 
 end

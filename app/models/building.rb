@@ -14,5 +14,15 @@ class Building < ActiveRecord::Base
   has_many :users, :through => :favoritings
   has_many :users, :through => :followings
 
+#Validations
+
+  validates :name,        :presence => true
+  validates :address,     :presence => true
+  validates :city,        :presence => true
+  validates :state,       :presence => true
+  validates :zip,         :presence => true
+
+
+
 
 end
