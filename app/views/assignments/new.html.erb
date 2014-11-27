@@ -43,41 +43,4 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col-md-offset-3 col-md-6">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Add Assignment</h3>
-      </div>
-      <div class="panel-body">
-        <form action="/create_assignment" class="form-horizontal">
-          <!-- Label and input for building_id -->
-          <div class="form-group">
-            <label for="building_id" class="col-sm-2 control-label">
-              Building
-            </label>
-            <div class="col-sm-10">
-              <input type="text" id="building_id" name="building_id" placeholder="Building" class="form-control" value="<%= @assignment.building_id %>">
-            </div>
-          </div>
 
-          <!-- Label and input for area_id -->
-          <div class="form-group">
-            <label for="area_id" class="col-sm-2 control-label">
-              Area
-            </label>
-            <div class="col-sm-10">
-              <input type="text" id="area_id" name="area_id" placeholder="Area" class="form-control" value="<%= @assignment.area_id %>">
-            </div>
-          </div>
-
-          <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-              <input type="submit" value="Create Assignment" class="btn btn-primary">
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
