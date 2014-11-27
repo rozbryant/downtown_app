@@ -1,0 +1,151 @@
+<% if @following.errors.any? %>
+  <% @following.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h1>Edit Following #<%= @following.id %></h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_following/<%= @following.id %>" class="form-horizontal">
+      <!-- Label and input for follower_id -->
+      <div class="form-group">
+        <label for="follower_id" class="col-sm-2 control-label">
+          Follower
+        </label>
+        <div class="col-sm-10">
+          <input type="text" id="follower_id" name="follower_id" placeholder="Follower" class="form-control" value="<%= @following.follower_id %>">
+        </div>
+      </div>
+
+      <!-- Label and input for building_id -->
+      <div class="form-group">
+        <label for="building_id" class="col-sm-2 control-label">
+          Building
+        </label>
+        <div class="col-sm-10">
+          <input type="text" id="building_id" name="building_id" placeholder="Building" class="form-control" value="<%= @following.building_id %>">
+        </div>
+      </div>
+
+      <!-- Label and input for buyer -->
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <div class="checkbox">
+            <label for="buyer">
+              <input type="checkbox" id="buyer" name="buyer" value="1" <%= "checked" if @following.buyer %>>
+              Buyer
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Label and input for seller -->
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <div class="checkbox">
+            <label for="seller">
+              <input type="checkbox" id="seller" name="seller" value="1" <%= "checked" if @following.seller %>>
+              Seller
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Label and input for note -->
+      <div class="form-group">
+        <label for="note" class="col-sm-2 control-label">
+          Note
+        </label>
+        <div class="col-sm-10">
+          <textarea id="note" name="note" placeholder="Note" class="form-control" rows="3"><%= @following.note %></textarea>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <input type="submit" value="Update Following" class="btn btn-primary">
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-offset-3 col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Edit Following #<%= @following.id %></h3>
+      </div>
+      <div class="panel-body">
+        <form action="/update_following/<%= @following.id %>" class="form-horizontal">
+          <!-- Label and input for follower_id -->
+          <div class="form-group">
+            <label for="follower_id" class="col-sm-2 control-label">
+              Follower
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="follower_id" name="follower_id" placeholder="Follower" class="form-control" value="<%= @following.follower_id %>">
+            </div>
+          </div>
+
+          <!-- Label and input for building_id -->
+          <div class="form-group">
+            <label for="building_id" class="col-sm-2 control-label">
+              Building
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="building_id" name="building_id" placeholder="Building" class="form-control" value="<%= @following.building_id %>">
+            </div>
+          </div>
+
+          <!-- Label and input for buyer -->
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="checkbox">
+                <label for="buyer">
+                  <input type="checkbox" id="buyer" name="buyer" value="1" <%= "checked" if @following.buyer %>>
+                  Buyer
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Label and input for seller -->
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="checkbox">
+                <label for="seller">
+                  <input type="checkbox" id="seller" name="seller" value="1" <%= "checked" if @following.seller %>>
+                  Seller
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Label and input for note -->
+          <div class="form-group">
+            <label for="note" class="col-sm-2 control-label">
+              Note
+            </label>
+            <div class="col-sm-10">
+              <textarea id="note" name="note" placeholder="Note" class="form-control" rows="3"><%= @following.note %></textarea>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <input type="submit" value="Update Following" class="btn btn-primary">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
