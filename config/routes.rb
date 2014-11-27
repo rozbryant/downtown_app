@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Attribute resource:
+  # CREATE
+  get('/attributes/new', { :controller => 'attributes', :action => 'new' })
+  get('/create_attribute', { :controller => 'attributes', :action => 'create' })
+
+  # READ
+  get('/attributes', { :controller => 'attributes', :action => 'index' })
+  get('/attributes/:id', { :controller => 'attributes', :action => 'show' })
+
+  # UPDATE
+  get('/attributes/:id/edit', { :controller => 'attributes', :action => 'edit' })
+  get('/update_attribute/:id', { :controller => 'attributes', :action => 'update' })
+
+  # DELETE
+  get('/delete_attribute/:id', { :controller => 'attributes', :action => 'destroy' })
+  #------------------------------
+
   # Routes for the Service resource:
   # CREATE
   get('/services/new', { :controller => 'services', :action => 'new' })
