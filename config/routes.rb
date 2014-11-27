@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Assignment resource:
+  # CREATE
+  get('/assignments/new', { :controller => 'assignments', :action => 'new' })
+  get('/create_assignment', { :controller => 'assignments', :action => 'create' })
+
+  # READ
+  get('/assignments', { :controller => 'assignments', :action => 'index' })
+  get('/assignments/:id', { :controller => 'assignments', :action => 'show' })
+
+  # UPDATE
+  get('/assignments/:id/edit', { :controller => 'assignments', :action => 'edit' })
+  get('/update_assignment/:id', { :controller => 'assignments', :action => 'update' })
+
+  # DELETE
+  get('/delete_assignment/:id', { :controller => 'assignments', :action => 'destroy' })
+  #------------------------------
+
   # Routes for the Area resource:
   # CREATE
   get('/areas/new', { :controller => 'areas', :action => 'new' })
