@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Building resource:
+  # CREATE
+  get('/buildings/new', { :controller => 'buildings', :action => 'new' })
+  get('/create_building', { :controller => 'buildings', :action => 'create' })
+
+  # READ
+  get('/buildings', { :controller => 'buildings', :action => 'index' })
+  get('/buildings/:id', { :controller => 'buildings', :action => 'show' })
+
+  # UPDATE
+  get('/buildings/:id/edit', { :controller => 'buildings', :action => 'edit' })
+  get('/update_building/:id', { :controller => 'buildings', :action => 'update' })
+
+  # DELETE
+  get('/delete_building/:id', { :controller => 'buildings', :action => 'destroy' })
+  #------------------------------
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
