@@ -5,6 +5,73 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+  <!-- Adds Bootswatch -->
+  <link rel="stylesheet" type="text/css"
+  href="http://maxcdn.bootstrapcdn.com/bootswatch/3.2.0/flatly/bootstrap.min.css">
+
+  <!-- Adds Font Awesome -->
+  <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+  <!-- Adds Custom Styles -->
+
+<style type="text/css">
+
+  #bg {
+  position: fixed;
+  top: 60px;
+  left: 0;
+
+  /* Preserve aspect ratio */
+  min-width: 100%;
+  min-height: 100%;
+}
+</style>
+
+<!-- Adds Bootstrap Javascript -->
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <div class="navbar navbar-default">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">At Home Downtown</a>
+    </div>
+    <div class="navbar-collapse collapse navbar-responsive-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#"><i class="fa fa-home"></i>
+        </a>
+        </li>
+        <li><a href="#"><i class="fa fa-list"></i></a></li>
+
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left">
+        <input type="text" class="form-control col-lg-8" placeholder="Search">
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i><b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Saved Properties</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+
 </head>
 <body>
 
