@@ -18,8 +18,8 @@
   <tbody>
     <% @assignments.each do |assignment| %>
       <tr>
-        <td><%= assignment.building_id %></td>
-        <td><%= assignment.area_id %></td>
+        <td><%= assignment.building.name %></td>
+        <td><%= assignment.area.name %></td>
         <td>
           <a href="/assignments/<%= assignment.id %>" class="btn btn-primary">
             <i class="fa fa-search-plus"></i>

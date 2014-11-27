@@ -21,7 +21,7 @@
   <tbody>
     <% @attributes.each do |attribute| %>
       <tr>
-        <td><%= attribute.building_id %></td>
+        <td><%= attribute.building.name %></td>
         <td><%= attribute.ownership %></td>
         <td><%= attribute.unit_count %></td>
         <td><%= attribute.stories %></td>

@@ -30,7 +30,7 @@
           Commenter
         </label>
         <div class="col-sm-10">
-          <input type="text" id="commenter_id" name="commenter_id" placeholder="Commenter" class="form-control" value="<%= @comment.commenter_id %>">
+          <%= select_tag(:commenter_id, options_from_collection_for_select(Comment.all, :id, :name, @comment.commenter_id), :class => "form-control") %>
         </div>
       </div>
 

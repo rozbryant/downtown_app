@@ -20,7 +20,7 @@
           Building
         </label>
         <div class="col-sm-10">
-          <input type="text" id="building_id" name="building_id" placeholder="Building" class="form-control" value="<%= @assignment.building_id %>">
+          <%= select_tag(:building_id, options_from_collection_for_select(Building.all, :id, :name, @assignment.building_id), :class => "form-control") %>
         </div>
       </div>
 
@@ -30,7 +30,7 @@
           Area
         </label>
         <div class="col-sm-10">
-          <input type="text" id="area_id" name="area_id" placeholder="Area" class="form-control" value="<%= @assignment.area_id %>">
+          <%= select_tag(:area_id, options_from_collection_for_select(Area.all, :id, :name, @assignment.area_id), :class => "form-control") %>
         </div>
       </div>
 
@@ -43,41 +43,3 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col-md-offset-3 col-md-6">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Edit Assignment #<%= @assignment.id %></h3>
-      </div>
-      <div class="panel-body">
-        <form action="/update_assignment/<%= @assignment.id %>" class="form-horizontal">
-          <!-- Label and input for building_id -->
-          <div class="form-group">
-            <label for="building_id" class="col-sm-2 control-label">
-              Building
-            </label>
-            <div class="col-sm-10">
-              <input type="text" id="building_id" name="building_id" placeholder="Building" class="form-control" value="<%= @assignment.building_id %>">
-            </div>
-          </div>
-
-          <!-- Label and input for area_id -->
-          <div class="form-group">
-            <label for="area_id" class="col-sm-2 control-label">
-              Area
-            </label>
-            <div class="col-sm-10">
-              <input type="text" id="area_id" name="area_id" placeholder="Area" class="form-control" value="<%= @assignment.area_id %>">
-            </div>
-          </div>
-
-          <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-              <input type="submit" value="Update Assignment" class="btn btn-primary">
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
