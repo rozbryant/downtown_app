@@ -30,7 +30,9 @@
           Commenter
         </label>
         <div class="col-sm-10">
-          <%= select_tag(:commenter_id, options_from_collection_for_select(Comment.all, :id, :name, @comment.commenter_id), :class => "form-control") %>
+
+<!-- start here -->
+          <%= select_tag(:commenter_id, options_from_collection_for_select(Comment.all, :id, :content, @user.id), :class => "form-control") %>
         </div>
       </div>
 
