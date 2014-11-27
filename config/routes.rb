@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Restriction resource:
+  # CREATE
+  get('/restrictions/new', { :controller => 'restrictions', :action => 'new' })
+  get('/create_restriction', { :controller => 'restrictions', :action => 'create' })
+
+  # READ
+  get('/restrictions', { :controller => 'restrictions', :action => 'index' })
+  get('/restrictions/:id', { :controller => 'restrictions', :action => 'show' })
+
+  # UPDATE
+  get('/restrictions/:id/edit', { :controller => 'restrictions', :action => 'edit' })
+  get('/update_restriction/:id', { :controller => 'restrictions', :action => 'update' })
+
+  # DELETE
+  get('/delete_restriction/:id', { :controller => 'restrictions', :action => 'destroy' })
+  #------------------------------
+
   # Routes for the Attribute resource:
   # CREATE
   get('/attributes/new', { :controller => 'attributes', :action => 'new' })

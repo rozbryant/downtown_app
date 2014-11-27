@@ -1,0 +1,68 @@
+<div class="page-header">
+  <h1>Restrictions</h1>
+</div>
+
+<p><a href="/restrictions/new" class="btn btn-primary">Add a New Restriction</a></p>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Building</th>
+      <th>No rental</th>
+      <th>Rental cap</th>
+      <th>Credit</th>
+      <th>Reference</th>
+      <th>Interview</th>
+      <th>Min down</th>
+      <th>No cat</th>
+      <th>No dog</th>
+      <th>Cat count limit</th>
+      <th>Dog count limit</th>
+      <th>Dog weight limit</th>
+      <th>All dog weight limit</th>
+      <th>All pet count limit</th>
+      <th>Note</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @restrictions.each do |restriction| %>
+      <tr>
+        <td><%= restriction.building_id %></td>
+        <td><%= restriction.no_rental %></td>
+        <td><%= restriction.rental_cap %></td>
+        <td><%= restriction.credit %></td>
+        <td><%= restriction.reference %></td>
+        <td><%= restriction.interview %></td>
+        <td><%= restriction.min_down %></td>
+        <td><%= restriction.no_cat %></td>
+        <td><%= restriction.no_dog %></td>
+        <td><%= restriction.cat_count_limit %></td>
+        <td><%= restriction.dog_count_limit %></td>
+        <td><%= restriction.dog_weight_limit %></td>
+        <td><%= restriction.all_dog_weight_limit %></td>
+        <td><%= restriction.all_pet_count_limit %></td>
+        <td><%= restriction.note %></td>
+        <td>
+          <a href="/restrictions/<%= restriction.id %>" class="btn btn-primary">
+            <i class="fa fa-search-plus"></i>
+          </a>
+        </td>
+        <td>
+          <a href="/restrictions/<%= restriction.id %>/edit" class="btn btn-warning">
+            <i class="fa fa-edit"></i>
+          </a>
+        </td>
+        <td>
+          <a href="/delete_restriction/<%= restriction.id %>" class="btn btn-danger">
+            <i class="fa fa-trash-o"></i>
+          </a>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
