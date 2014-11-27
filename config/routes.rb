@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Area resource:
+  # CREATE
+  get('/areas/new', { :controller => 'areas', :action => 'new' })
+  get('/create_area', { :controller => 'areas', :action => 'create' })
+
+  # READ
+  get('/areas', { :controller => 'areas', :action => 'index' })
+  get('/areas/:id', { :controller => 'areas', :action => 'show' })
+
+  # UPDATE
+  get('/areas/:id/edit', { :controller => 'areas', :action => 'edit' })
+  get('/update_area/:id', { :controller => 'areas', :action => 'update' })
+
+  # DELETE
+  get('/delete_area/:id', { :controller => 'areas', :action => 'destroy' })
+  #------------------------------
+
   # Routes for the Following resource:
   # CREATE
   get('/followings/new', { :controller => 'followings', :action => 'new' })
