@@ -1,0 +1,439 @@
+<% if @space.errors.any? %>
+  <% @space.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h1>Edit Space #<%= @space.id %></h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_space/<%= @space.id %>" class="form-horizontal">
+      <!-- Label and input for building_id -->
+      <div class="form-group">
+        <label for="building_id" class="col-sm-2 control-label">
+          Building
+        </label>
+        <div class="col-sm-10">
+          <input type="text" id="building_id" name="building_id" placeholder="Building" class="form-control" value="<%= @space.building_id %>">
+        </div>
+      </div>
+
+      <!-- Label and input for storage -->
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <div class="checkbox">
+            <label for="storage">
+              <input type="checkbox" id="storage" name="storage" value="1" <%= "checked" if @space.storage %>>
+              Storage
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Label and input for bike_storage_boolean -->
+      <div class="form-group">
+        <label for="bike_storage_boolean" class="col-sm-2 control-label">
+          Bike storage boolean
+        </label>
+        <div class="col-sm-10">
+          <input type="text" id="bike_storage_boolean" name="bike_storage_boolean" placeholder="Bike storage boolean" class="form-control" value="<%= @space.bike_storage_boolean %>">
+        </div>
+      </div>
+
+      <!-- Label and input for party_room -->
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <div class="checkbox">
+            <label for="party_room">
+              <input type="checkbox" id="party_room" name="party_room" value="1" <%= "checked" if @space.party_room %>>
+              Party room
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Label and input for sundeck -->
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <div class="checkbox">
+            <label for="sundeck">
+              <input type="checkbox" id="sundeck" name="sundeck" value="1" <%= "checked" if @space.sundeck %>>
+              Sundeck
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Label and input for parking_leased -->
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <div class="checkbox">
+            <label for="parking_leased">
+              <input type="checkbox" id="parking_leased" name="parking_leased" value="1" <%= "checked" if @space.parking_leased %>>
+              Parking leased
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Label and input for parking_owned -->
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <div class="checkbox">
+            <label for="parking_owned">
+              <input type="checkbox" id="parking_owned" name="parking_owned" value="1" <%= "checked" if @space.parking_owned %>>
+              Parking owned
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Label and input for wine_cellar -->
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <div class="checkbox">
+            <label for="wine_cellar">
+              <input type="checkbox" id="wine_cellar" name="wine_cellar" value="1" <%= "checked" if @space.wine_cellar %>>
+              Wine cellar
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Label and input for humidor -->
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <div class="checkbox">
+            <label for="humidor">
+              <input type="checkbox" id="humidor" name="humidor" value="1" <%= "checked" if @space.humidor %>>
+              Humidor
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Label and input for dog_run -->
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <div class="checkbox">
+            <label for="dog_run">
+              <input type="checkbox" id="dog_run" name="dog_run" value="1" <%= "checked" if @space.dog_run %>>
+              Dog run
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Label and input for lounge -->
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <div class="checkbox">
+            <label for="lounge">
+              <input type="checkbox" id="lounge" name="lounge" value="1" <%= "checked" if @space.lounge %>>
+              Lounge
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Label and input for biz_center -->
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <div class="checkbox">
+            <label for="biz_center">
+              <input type="checkbox" id="biz_center" name="biz_center" value="1" <%= "checked" if @space.biz_center %>>
+              Biz center
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Label and input for conf_room -->
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <div class="checkbox">
+            <label for="conf_room">
+              <input type="checkbox" id="conf_room" name="conf_room" value="1" <%= "checked" if @space.conf_room %>>
+              Conf room
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Label and input for theater -->
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <div class="checkbox">
+            <label for="theater">
+              <input type="checkbox" id="theater" name="theater" value="1" <%= "checked" if @space.theater %>>
+              Theater
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Label and input for guest_parking -->
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <div class="checkbox">
+            <label for="guest_parking">
+              <input type="checkbox" id="guest_parking" name="guest_parking" value="1" <%= "checked" if @space.guest_parking %>>
+              Guest parking
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Label and input for guest_stay -->
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <div class="checkbox">
+            <label for="guest_stay">
+              <input type="checkbox" id="guest_stay" name="guest_stay" value="1" <%= "checked" if @space.guest_stay %>>
+              Guest stay
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Label and input for note -->
+      <div class="form-group">
+        <label for="note" class="col-sm-2 control-label">
+          Note
+        </label>
+        <div class="col-sm-10">
+          <textarea id="note" name="note" placeholder="Note" class="form-control" rows="3"><%= @space.note %></textarea>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <input type="submit" value="Update Space" class="btn btn-primary">
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-offset-3 col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Edit Space #<%= @space.id %></h3>
+      </div>
+      <div class="panel-body">
+        <form action="/update_space/<%= @space.id %>" class="form-horizontal">
+          <!-- Label and input for building_id -->
+          <div class="form-group">
+            <label for="building_id" class="col-sm-2 control-label">
+              Building
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="building_id" name="building_id" placeholder="Building" class="form-control" value="<%= @space.building_id %>">
+            </div>
+          </div>
+
+          <!-- Label and input for storage -->
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="checkbox">
+                <label for="storage">
+                  <input type="checkbox" id="storage" name="storage" value="1" <%= "checked" if @space.storage %>>
+                  Storage
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Label and input for bike_storage_boolean -->
+          <div class="form-group">
+            <label for="bike_storage_boolean" class="col-sm-2 control-label">
+              Bike storage boolean
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="bike_storage_boolean" name="bike_storage_boolean" placeholder="Bike storage boolean" class="form-control" value="<%= @space.bike_storage_boolean %>">
+            </div>
+          </div>
+
+          <!-- Label and input for party_room -->
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="checkbox">
+                <label for="party_room">
+                  <input type="checkbox" id="party_room" name="party_room" value="1" <%= "checked" if @space.party_room %>>
+                  Party room
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Label and input for sundeck -->
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="checkbox">
+                <label for="sundeck">
+                  <input type="checkbox" id="sundeck" name="sundeck" value="1" <%= "checked" if @space.sundeck %>>
+                  Sundeck
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Label and input for parking_leased -->
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="checkbox">
+                <label for="parking_leased">
+                  <input type="checkbox" id="parking_leased" name="parking_leased" value="1" <%= "checked" if @space.parking_leased %>>
+                  Parking leased
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Label and input for parking_owned -->
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="checkbox">
+                <label for="parking_owned">
+                  <input type="checkbox" id="parking_owned" name="parking_owned" value="1" <%= "checked" if @space.parking_owned %>>
+                  Parking owned
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Label and input for wine_cellar -->
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="checkbox">
+                <label for="wine_cellar">
+                  <input type="checkbox" id="wine_cellar" name="wine_cellar" value="1" <%= "checked" if @space.wine_cellar %>>
+                  Wine cellar
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Label and input for humidor -->
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="checkbox">
+                <label for="humidor">
+                  <input type="checkbox" id="humidor" name="humidor" value="1" <%= "checked" if @space.humidor %>>
+                  Humidor
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Label and input for dog_run -->
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="checkbox">
+                <label for="dog_run">
+                  <input type="checkbox" id="dog_run" name="dog_run" value="1" <%= "checked" if @space.dog_run %>>
+                  Dog run
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Label and input for lounge -->
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="checkbox">
+                <label for="lounge">
+                  <input type="checkbox" id="lounge" name="lounge" value="1" <%= "checked" if @space.lounge %>>
+                  Lounge
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Label and input for biz_center -->
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="checkbox">
+                <label for="biz_center">
+                  <input type="checkbox" id="biz_center" name="biz_center" value="1" <%= "checked" if @space.biz_center %>>
+                  Biz center
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Label and input for conf_room -->
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="checkbox">
+                <label for="conf_room">
+                  <input type="checkbox" id="conf_room" name="conf_room" value="1" <%= "checked" if @space.conf_room %>>
+                  Conf room
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Label and input for theater -->
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="checkbox">
+                <label for="theater">
+                  <input type="checkbox" id="theater" name="theater" value="1" <%= "checked" if @space.theater %>>
+                  Theater
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Label and input for guest_parking -->
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="checkbox">
+                <label for="guest_parking">
+                  <input type="checkbox" id="guest_parking" name="guest_parking" value="1" <%= "checked" if @space.guest_parking %>>
+                  Guest parking
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Label and input for guest_stay -->
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="checkbox">
+                <label for="guest_stay">
+                  <input type="checkbox" id="guest_stay" name="guest_stay" value="1" <%= "checked" if @space.guest_stay %>>
+                  Guest stay
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Label and input for note -->
+          <div class="form-group">
+            <label for="note" class="col-sm-2 control-label">
+              Note
+            </label>
+            <div class="col-sm-10">
+              <textarea id="note" name="note" placeholder="Note" class="form-control" rows="3"><%= @space.note %></textarea>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <input type="submit" value="Update Space" class="btn btn-primary">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

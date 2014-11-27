@@ -1,0 +1,72 @@
+<div class="page-header">
+  <h1>Spaces</h1>
+</div>
+
+<p><a href="/spaces/new" class="btn btn-primary">Add a New Space</a></p>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Building</th>
+      <th>Storage</th>
+      <th>Bike storage boolean</th>
+      <th>Party room</th>
+      <th>Sundeck</th>
+      <th>Parking leased</th>
+      <th>Parking owned</th>
+      <th>Wine cellar</th>
+      <th>Humidor</th>
+      <th>Dog run</th>
+      <th>Lounge</th>
+      <th>Biz center</th>
+      <th>Conf room</th>
+      <th>Theater</th>
+      <th>Guest parking</th>
+      <th>Guest stay</th>
+      <th>Note</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @spaces.each do |space| %>
+      <tr>
+        <td><%= space.building_id %></td>
+        <td><%= space.storage %></td>
+        <td><%= space.bike_storage_boolean %></td>
+        <td><%= space.party_room %></td>
+        <td><%= space.sundeck %></td>
+        <td><%= space.parking_leased %></td>
+        <td><%= space.parking_owned %></td>
+        <td><%= space.wine_cellar %></td>
+        <td><%= space.humidor %></td>
+        <td><%= space.dog_run %></td>
+        <td><%= space.lounge %></td>
+        <td><%= space.biz_center %></td>
+        <td><%= space.conf_room %></td>
+        <td><%= space.theater %></td>
+        <td><%= space.guest_parking %></td>
+        <td><%= space.guest_stay %></td>
+        <td><%= space.note %></td>
+        <td>
+          <a href="/spaces/<%= space.id %>" class="btn btn-primary">
+            <i class="fa fa-search-plus"></i>
+          </a>
+        </td>
+        <td>
+          <a href="/spaces/<%= space.id %>/edit" class="btn btn-warning">
+            <i class="fa fa-edit"></i>
+          </a>
+        </td>
+        <td>
+          <a href="/delete_space/<%= space.id %>" class="btn btn-danger">
+            <i class="fa fa-trash-o"></i>
+          </a>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
