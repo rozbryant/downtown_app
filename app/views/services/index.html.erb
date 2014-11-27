@@ -1,0 +1,66 @@
+<div class="page-header">
+  <h1>Services</h1>
+</div>
+
+<p><a href="/services/new" class="btn btn-primary">Add a New Service</a></p>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Building</th>
+      <th>Part door</th>
+      <th>Full door</th>
+      <th>Catering</th>
+      <th>Housekeeping</th>
+      <th>Dry cleaning</th>
+      <th>Concierge</th>
+      <th>Package receiving</th>
+      <th>Car wash</th>
+      <th>Dog wash</th>
+      <th>Restaurant</th>
+      <th>Social</th>
+      <th>Groceries</th>
+      <th>Note</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @services.each do |service| %>
+      <tr>
+        <td><%= service.building_id %></td>
+        <td><%= service.part_door %></td>
+        <td><%= service.full_door %></td>
+        <td><%= service.catering %></td>
+        <td><%= service.housekeeping %></td>
+        <td><%= service.dry_cleaning %></td>
+        <td><%= service.concierge %></td>
+        <td><%= service.package_receiving %></td>
+        <td><%= service.car_wash %></td>
+        <td><%= service.dog_wash %></td>
+        <td><%= service.restaurant %></td>
+        <td><%= service.social %></td>
+        <td><%= service.groceries %></td>
+        <td><%= service.note %></td>
+        <td>
+          <a href="/services/<%= service.id %>" class="btn btn-primary">
+            <i class="fa fa-search-plus"></i>
+          </a>
+        </td>
+        <td>
+          <a href="/services/<%= service.id %>/edit" class="btn btn-warning">
+            <i class="fa fa-edit"></i>
+          </a>
+        </td>
+        <td>
+          <a href="/delete_service/<%= service.id %>" class="btn btn-danger">
+            <i class="fa fa-trash-o"></i>
+          </a>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

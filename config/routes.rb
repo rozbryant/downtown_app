@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Service resource:
+  # CREATE
+  get('/services/new', { :controller => 'services', :action => 'new' })
+  get('/create_service', { :controller => 'services', :action => 'create' })
+
+  # READ
+  get('/services', { :controller => 'services', :action => 'index' })
+  get('/services/:id', { :controller => 'services', :action => 'show' })
+
+  # UPDATE
+  get('/services/:id/edit', { :controller => 'services', :action => 'edit' })
+  get('/update_service/:id', { :controller => 'services', :action => 'update' })
+
+  # DELETE
+  get('/delete_service/:id', { :controller => 'services', :action => 'destroy' })
+  #------------------------------
+
   # Routes for the Space resource:
   # CREATE
   get('/spaces/new', { :controller => 'spaces', :action => 'new' })
