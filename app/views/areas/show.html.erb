@@ -7,26 +7,29 @@
   <dd><%= @area.name %></dd>
 </dl>
  -->
-
  <div class="container">
   <div class="row">
-    <div class="col-md-12">
-    </div>
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-       <%= @area.assignments.each do |hoodmatch| %>
-       <h3 class="panel-title"><%= @area.name %> Buildings</h3>
-     </div>
-     <div class="panel-body">
-      <div class="row">
-        <div class="col-xs-6 col-md-3">
-          <a href="/buildings/<%= hoodmatch.building.id %>" class="thumbnail" align="center">
-            <img src="<%= hoodmatch.building.image_url %>" alt="...">
-            <%= hoodmatch.building.name %>
-            <p><%= hoodmatch.building.address %></p>
-          </a>
-          <% end %>
-        </div>
+  <!--   <div class="col-md-12">
+</div> -->
+<div class="panel panel-primary">
+  <div class="panel-heading">
+
+   <h3 class="panel-title">
+    <%= @area.name %> Buildings</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-xs-6 col-md-3">
+        <%= @area.assignments.each do |hoodmatch| %>
+        <a href="/buildings/<%= hoodmatch.building.id %>" class="thumbnail" align="center">
+          <img src="<%= hoodmatch.building.image_url %>" alt="...">
+          <%= hoodmatch.building.name %>
+          <p><%= hoodmatch.building.address %></p>
+        </a>
+        <% end %>
       </div>
     </div>
   </div>
+</div>
+</div>
+</div>
