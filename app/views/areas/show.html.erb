@@ -17,7 +17,11 @@
 </ul>
 <!--   Take these building_ids to the buildings table and find all corresponding building names -->
 <!--  return these building photo, names, addresses -->
-<li><%= hoodmatch.building.image_url %> - <%= hoodmatch.building.name %> - <%= hoodmatch.building.address %></li>
+<a href="/buildings/<%= hoodmatch.building.id %>">
+<li><%= hoodmatch.building.image_url %></a> -
+<a href="/buildings/<%= hoodmatch.building.id %>">
+<%= hoodmatch.building.name %></a> -
+<%= hoodmatch.building.address %></li>
 <% end %>
 </div>
 
