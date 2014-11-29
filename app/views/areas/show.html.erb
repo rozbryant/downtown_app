@@ -20,7 +20,7 @@
   <div class="panel-body">
     <div class="row">
       <div class="col-xs-6 col-md-3">
-        <%= @area.assignments.each do |hoodmatch| %>
+        <% @area.assignments.each do |hoodmatch| %>
         <a href="/buildings/<%= hoodmatch.building.id %>" class="thumbnail" align="center">
           <img src="<%= hoodmatch.building.image_url %>" alt="...">
           <%= hoodmatch.building.name %>
