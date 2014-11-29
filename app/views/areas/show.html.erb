@@ -8,20 +8,25 @@
 </dl>
  -->
 
-<div>
-  <h3>Properties in this area:</h3>
-<ul>
-<!--   @area is row from Area matching the params. -->
-<!-- Take this id to assignments table and finding all corresponding building_ids -->
-<%= @area.assignments.each do |hoodmatch| %>
-</ul>
-<!--   Take these building_ids to the buildings table and find all corresponding building names -->
-<!--  return these building photo, names, addresses -->
-<a href="/buildings/<%= hoodmatch.building.id %>">
-<li><%= hoodmatch.building.image_url %></a> -
-<a href="/buildings/<%= hoodmatch.building.id %>">
-<%= hoodmatch.building.name %></a> -
-<%= hoodmatch.building.address %></li>
-<% end %>
-</div>
-
+ <div class="container">
+  <div class="row">
+    <div class="col-md-12">
+    </div>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+       <%= @area.assignments.each do |hoodmatch| %>
+       <h3 class="panel-title"><%= @area.name %> Buildings</h3>
+     </div>
+     <div class="panel-body">
+      <div class="row">
+        <div class="col-xs-6 col-md-3">
+          <a href="/buildings/<%= hoodmatch.building.id %>" class="thumbnail" align="center">
+            <img src="<%= hoodmatch.building.image_url %>" alt="...">
+            <%= hoodmatch.building.name %>
+            <p><%= hoodmatch.building.address %></p>
+          </a>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
