@@ -33,7 +33,7 @@
   <tbody>
     <% @spaces.each do |space| %>
       <tr>
-        <td><%= space.building_id %></td>
+        <td><%= space.building.name %></td>
         <td><%= space.storage %></td>
         <td><%= space.bike_storage %></td>
         <td><%= space.party_room %></td>

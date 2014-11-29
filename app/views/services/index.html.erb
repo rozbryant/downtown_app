@@ -30,7 +30,7 @@
   <tbody>
     <% @services.each do |service| %>
       <tr>
-        <td><%= service.building_id %></td>
+        <td><%= service.building.name %></td>
         <td><%= service.part_door %></td>
         <td><%= service.full_door %></td>
         <td><%= service.catering %></td>

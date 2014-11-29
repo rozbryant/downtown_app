@@ -1,5 +1,5 @@
-<% if @attribute.errors.any? %>
-  <% @attribute.errors.full_messages.each do |message| %>
+<% if @stat.errors.any? %>
+  <% @stat.errors.full_messages.each do |message| %>
     <div class="alert alert-dismissable alert-danger">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
       <%= message %>
@@ -8,19 +8,19 @@
 <% end %>
 
 <div class="page-header">
-  <h1>Add Attribute</h1>
+  <h1>Edit Stat #<%= @stat.id %></h1>
 </div>
 
 <div class="row">
   <div class="col-md-12">
-    <form action="/create_attribute" class="form-horizontal">
+    <form action="/update_stat/<%= @stat.id %>" class="form-horizontal">
       <!-- Label and input for building_id -->
       <div class="form-group">
         <label for="building_id" class="col-sm-2 control-label">
           Building
         </label>
         <div class="col-sm-10">
-          <%= select_tag(:building_id, options_from_collection_for_select(Building.all, :id, :name, @attribute.building_id), :class => "form-control") %>
+          <input type="text" id="building_id" name="building_id" placeholder="Building" class="form-control" value="<%= @stat.building.name %>">
         </div>
       </div>
 
@@ -30,7 +30,17 @@
           Ownership
         </label>
         <div class="col-sm-10">
-          <input type="text" id="ownership" name="ownership" placeholder="Ownership" class="form-control" value="<%= @attribute.ownership %>">
+          <input type="text" id="ownership" name="ownership" placeholder="Ownership" class="form-control" value="<%= @stat.ownership %>">
+        </div>
+      </div>
+
+      <!-- Label and input for year_built -->
+      <div class="form-group">
+        <label for="year_built" class="col-sm-2 control-label">
+          Year built
+        </label>
+        <div class="col-sm-10">
+          <input type="text" id="year_built" name="year_built" placeholder="Year built" class="form-control" value="<%= @stat.year_built %>">
         </div>
       </div>
 
@@ -40,7 +50,7 @@
           Unit count
         </label>
         <div class="col-sm-10">
-          <input type="text" id="unit_count" name="unit_count" placeholder="Unit count" class="form-control" value="<%= @attribute.unit_count %>">
+          <input type="text" id="unit_count" name="unit_count" placeholder="Unit count" class="form-control" value="<%= @stat.unit_count %>">
         </div>
       </div>
 
@@ -50,7 +60,7 @@
           Stories
         </label>
         <div class="col-sm-10">
-          <input type="text" id="stories" name="stories" placeholder="Stories" class="form-control" value="<%= @attribute.stories %>">
+          <input type="text" id="stories" name="stories" placeholder="Stories" class="form-control" value="<%= @stat.stories %>">
         </div>
       </div>
 
@@ -60,13 +70,13 @@
           Note
         </label>
         <div class="col-sm-10">
-          <textarea id="note" name="note" placeholder="Note" class="form-control" rows="3"><%= @attribute.note %></textarea>
+          <textarea id="note" name="note" placeholder="Note" class="form-control" rows="3"><%= @stat.note %></textarea>
         </div>
       </div>
 
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-          <input type="submit" value="Create Attribute" class="btn btn-primary">
+          <input type="submit" value="Update Stat" class="btn btn-primary">
         </div>
       </div>
     </form>

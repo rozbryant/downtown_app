@@ -1,0 +1,50 @@
+<div class="page-header">
+  <h1>Stats</h1>
+</div>
+
+<p><a href="/stats/new" class="btn btn-primary">Add a New Stat</a></p>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Building</th>
+      <th>Ownership</th>
+      <th>Year built</th>
+      <th>Unit count</th>
+      <th>Stories</th>
+      <th>Note</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @stats.each do |stat| %>
+      <tr>
+        <td><%= stat.building.name %></td>
+        <td><%= stat.ownership %></td>
+        <td><%= stat.year_built %></td>
+        <td><%= stat.unit_count %></td>
+        <td><%= stat.stories %></td>
+        <td><%= stat.note %></td>
+        <td>
+          <a href="/stats/<%= stat.id %>" class="btn btn-primary">
+            <i class="fa fa-search-plus"></i>
+          </a>
+        </td>
+        <td>
+          <a href="/stats/<%= stat.id %>/edit" class="btn btn-warning">
+            <i class="fa fa-edit"></i>
+          </a>
+        </td>
+        <td>
+          <a href="/delete_stat/<%= stat.id %>" class="btn btn-danger">
+            <i class="fa fa-trash-o"></i>
+          </a>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

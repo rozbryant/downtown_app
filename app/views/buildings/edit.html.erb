@@ -14,15 +14,7 @@
 <div class="row">
   <div class="col-md-12">
     <form action="/update_building/<%= @building.id %>" class="form-horizontal">
-      <!-- Label and input for image_url -->
-      <div class="form-group">
-        <label for="image_url" class="col-sm-2 control-label">
-          Image url
-        </label>
-        <div class="col-sm-10">
-          <input type="text" id="image_url" name="image_url" placeholder="Image url" class="form-control" value="<%= @building.image_url %>">
-        </div>
-      </div>
+
 
       <!-- Label and input for name -->
       <div class="form-group">
@@ -81,6 +73,16 @@
         </label>
         <div class="col-sm-10">
           <textarea id="headline" name="headline" placeholder="Headline" class="form-control" rows="3"><%= @building.headline %></textarea>
+        </div>
+      </div>
+
+      <!-- Label and input for image_url -->
+      <div class="form-group">
+        <label for="image_url" class="col-sm-2 control-label">
+          Image url
+        </label>
+        <div class="col-sm-10">
+          <input type="text" id="image_url" name="image_url" placeholder="Image url" class="form-control" value="<%= @building.image_url %>">
         </div>
       </div>
 
