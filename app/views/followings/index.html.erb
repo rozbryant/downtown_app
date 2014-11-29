@@ -21,8 +21,8 @@
   <tbody>
     <% @followings.each do |following| %>
       <tr>
-        <td><%= following.follower_id %></td>
-        <td><%= following.building_id %></td>
+        <td><%= following.user.name %></td>
+        <td><%= following.building.name %></td>
         <td><%= following.buyer %></td>
         <td><%= following.seller %></td>
         <td><%= following.note %></td>

@@ -1,7 +1,7 @@
 class Comment < ActiveRecord::Base
 
-  belongs_to(:user, { :class_name => "Comment", :foreign_key => "commenter_id" })
-  belongs_to(:building, { :class_name => "Comment", :foreign_key => "building_id" })
+  belongs_to(:user, { :class_name => "User", :foreign_key => "commenter_id" })
+  belongs_to(:building, { :class_name => "Building", :foreign_key => "building_id" })
 
 
 #Validations
@@ -10,7 +10,7 @@ class Comment < ActiveRecord::Base
   validates :commenter_id, :uniqueness => { :scope => :building_id }
 
   validates :building, :presence => true
-  validates :building_id, :uniqueness => { :scopre => :commenter_id }
+  validates :building_id, :uniqueness => { :scope => :commenter_id }
 
   validates :content, :presence => true
 

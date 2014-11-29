@@ -1,13 +1,13 @@
 <div class="page-header">
-  <h1>Following #<%= @following.id %></h1>
+  <h1>Following #<%= @following.user.name %></h1>
 </div>
 
 <dl class="dl-horizontal">
   <dt>Follower</dt>
-  <dd><%= @following.follower_id %></dd>
+  <dd><%= @following.user.name %></dd>
 
   <dt>Building</dt>
-  <dd><%= @following.building_id %></dd>
+  <dd><%= @following.building.name %></dd>
 
   <dt>Buyer</dt>
   <dd><%= @following.buyer %></dd>

@@ -14,7 +14,7 @@ class Following < ActiveRecord::Base
   validate :check_buy_sell => true
 
   def check_buy_sell
-    if buyer.false? and seller.false?
+    if buyer.nil? and seller.nil?
       return false
     else
       return true

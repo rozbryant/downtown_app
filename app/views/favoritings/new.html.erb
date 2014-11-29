@@ -20,7 +20,7 @@
           Building
         </label>
         <div class="col-sm-10">
-          <input type="text" id="building_id" name="building_id" placeholder="Building" class="form-control" value="<%= @favoriting.building_id %>">
+          <%= select_tag(:building_id, options_from_collection_for_select(Building.all, :id, :name, @favoriting.building_id), :class => "form-control") %>
         </div>
       </div>
 
@@ -30,7 +30,7 @@
           Favorited by
         </label>
         <div class="col-sm-10">
-          <input type="text" id="favorited_by" name="favorited_by" placeholder="Favorited by" class="form-control" value="<%= @favoriting.favorited_by %>">
+          <%= select_tag(:favorited_by, options_from_collection_for_select(User.all, :id, :name, @favoriting.favorited_by), :class => "form-control") %>
         </div>
       </div>
 

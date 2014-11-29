@@ -20,7 +20,7 @@
           Follower
         </label>
         <div class="col-sm-10">
-          <input type="text" id="follower_id" name="follower_id" placeholder="Follower" class="form-control" value="<%= @following.follower_id %>">
+          <%= select_tag(:follower_id, options_from_collection_for_select(User.all, :id, :name, @following.follower_id), :class => "form-control") %>
         </div>
       </div>
 
@@ -30,7 +30,7 @@
           Building
         </label>
         <div class="col-sm-10">
-          <input type="text" id="building_id" name="building_id" placeholder="Building" class="form-control" value="<%= @following.building_id %>">
+          <%= select_tag(:building_id, options_from_collection_for_select(Building.all, :id, :name, @following.building_id), :class => "form-control") %>
         </div>
       </div>
 
