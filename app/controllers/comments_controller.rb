@@ -35,6 +35,7 @@ class CommentsController < ApplicationController
     @comment.commenter_id = params[:commenter_id]
     @comment.building_id = params[:building_id]
 
+
     if @comment.save
       redirect_to "/comments", :notice => "Comment updated successfully."
     else

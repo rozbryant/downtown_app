@@ -1,9 +1,23 @@
 <div class="page-header">
-  <h1>Area #<%= @area.id %></h1>
+  <h1>Neighborhood: <%= @area.name %></h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt>Name</dt>
+<!-- <dl class="dl-horizontal">
+  <dt>Neighborhood:</dt>
   <dd><%= @area.name %></dd>
-
 </dl>
+ -->
+
+<div>
+  <h3>Properties in this area:</h3>
+<ul>
+<!--   @area is row from Area matching the params. -->
+<!-- Take this id to assignments table and finding all corresponding building_ids -->
+<%= @area.assignments.each do |hoodmatch| %>
+</ul>
+<!--   Take these building_ids to the buildings table and find all corresponding building names -->
+<!--  return these building photo, names, addresses -->
+<li><%= hoodmatch.building.image_url %> - <%= hoodmatch.building.name %> - <%= hoodmatch.building.address %></li>
+<% end %>
+</div>
+
