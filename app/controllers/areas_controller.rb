@@ -45,4 +45,10 @@ class AreasController < ApplicationController
 
     redirect_to "/areas", :notice => "Area deleted."
   end
+
+  def search
+
+    @area = Area.find(params[:name :address :area.name])
+
+  end
 end

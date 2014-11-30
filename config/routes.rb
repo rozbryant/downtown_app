@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  # Route for home page
+  get('/', { :controller => 'buildings', :action => 'index' })
+
   # Routes for the Stat resource:
   # CREATE
   get('/stats/new', { :controller => 'stats', :action => 'new' })
@@ -16,9 +19,6 @@ Rails.application.routes.draw do
   # DELETE
   get('/delete_stat/:id', { :controller => 'stats', :action => 'destroy' })
   #------------------------------
-
-  # Route for home page
-  get('/', { :controller => 'buildings', :action => 'index' })
 
   # Routes for the Space resource:
   # CREATE
