@@ -32,7 +32,7 @@ class SpacesController < ApplicationController
     @space.note = params[:note]
 
     if @space.save
-      redirect_to "/spaces", :notice => "Space created successfully."
+      redirect_to "/restrictions/new", :notice => "Space created successfully."
     else
       render 'new'
     end

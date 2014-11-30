@@ -30,7 +30,7 @@ class RestrictionsController < ApplicationController
     @restriction.note = params[:note]
 
     if @restriction.save
-      redirect_to "/restrictions", :notice => "Restriction created successfully."
+      redirect_to "/buildings", :notice => "Restriction created successfully."
     else
       render 'new'
     end

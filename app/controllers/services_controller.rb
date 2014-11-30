@@ -29,7 +29,7 @@ class ServicesController < ApplicationController
     @service.note = params[:note]
 
     if @service.save
-      redirect_to "/services", :notice => "Service created successfully."
+      redirect_to "/actives/new", :notice => "Service created successfully."
     else
       render 'new'
     end

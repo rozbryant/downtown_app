@@ -16,7 +16,7 @@ class AreasController < ApplicationController
     @area.name = params[:name]
 
     if @area.save
-      redirect_to "/areas", :notice => "Area created successfully."
+      redirect_to "/areas/new", :notice => "Area created successfully."
     else
       render 'new'
     end

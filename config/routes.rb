@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   #------------------------------
 
   # Route for home page
-  get('/', { :controller => 'areas', :action => 'index' })
+  get('/', { :controller => 'buildings', :action => 'index' })
 
   # Routes for the Space resource:
   # CREATE

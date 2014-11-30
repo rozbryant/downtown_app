@@ -23,7 +23,7 @@ class BuildingsController < ApplicationController
     @building.headline = params[:headline]
 
     if @building.save
-      redirect_to "/buildings", :notice => "Building created successfully."
+      redirect_to "/assignments/new", :notice => "Building created successfully."
     else
       render 'new'
     end

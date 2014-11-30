@@ -17,7 +17,7 @@ class AssignmentsController < ApplicationController
     @assignment.area_id = params[:area_id]
 
     if @assignment.save
-      redirect_to "/assignments", :notice => "Assignment created successfully."
+      redirect_to "/stats/new", :notice => "Assignment created successfully."
     else
       render 'new'
     end

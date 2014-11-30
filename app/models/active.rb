@@ -5,5 +5,6 @@ class Active < ActiveRecord::Base
 #Validations
 
   validates :building, :presence => true
+  validates :building, :uniqueness => true
 
 end

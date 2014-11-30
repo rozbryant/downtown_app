@@ -21,7 +21,7 @@ class StatsController < ApplicationController
     @stat.note = params[:note]
 
     if @stat.save
-      redirect_to "/stats", :notice => "Stat created successfully."
+      redirect_to "/services/new", :notice => "Stat created successfully."
     else
       render 'new'
     end

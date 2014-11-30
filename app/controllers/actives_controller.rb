@@ -24,7 +24,7 @@ class ActivesController < ApplicationController
     @active.note = params[:note]
 
     if @active.save
-      redirect_to "/actives", :notice => "Active created successfully."
+      redirect_to "/spaces/new", :notice => "Active created successfully."
     else
       render 'new'
     end
