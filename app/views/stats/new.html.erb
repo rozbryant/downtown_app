@@ -30,7 +30,8 @@
           Ownership
         </label>
         <div class="col-sm-10">
-          <input type="text" id="ownership" name="ownership" placeholder="Ownership" class="form-control" value="<%= @stat.ownership %>">
+<!--         Start here. Trying to create options dropdown with default Condo -->
+          <%= select_tag(:ownership, options_for_select([ "Condo", "Co-op", "Rental" ]) %>
         </div>
       </div>
 
