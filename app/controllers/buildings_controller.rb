@@ -3,6 +3,16 @@ class BuildingsController < ApplicationController
     @buildings = Building.all
   end
 
+  def splash
+
+    render 'splash'
+
+  end
+
+  def search
+
+  end
+
   def show
     @building = Building.find(params[:id])
 

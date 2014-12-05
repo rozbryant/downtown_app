@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   # Route for home page
-  get('/', { :controller => 'buildings', :action => 'index' })
+  get('/', { :controller => 'buildings', :action => 'splash' })
 
   # Routes for the Stat resource:
   # CREATE
