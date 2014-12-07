@@ -1,11 +1,7 @@
 class BuildingsController < ApplicationController
 
   def index
-    if params[:search]
-      @buildings = Building.search(params[:search]).order("name DESC")
-    else
-      @buildings = Building.order("name DESC")
-    end
+    @buildings = Building.all
   end
 
   def search
