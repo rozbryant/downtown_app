@@ -19,20 +19,17 @@
           <h2>Search Chicago Condo Buildings</h2>
           <p>Don't just fall in love with an apartment. Make sure the building fits.</p>
           <div class="form-group">
-
-            <%= form_tag :controller => 'buildings', :action => 'search', :method => 'get' do %>
-            <%= text_field_tag :search, params[:search], :id => 'search_field' %>
-            <%= submit_tag "Search", :name => nil %>
-
-            <% end %>
-
             <label class="control-label" for="focusedInput">Start here.</label>
-            <input class="form-control" id="focusedInput" type="text" value="Trump Tower, 240 E Illinois...">
-            <p><a class="btn btn-primary"><i class="fa fa-search fa-2x"></i></a></p>
+            <form action="/_search" class="form-horizontal">
+              <%= form_tag :controller => 'buildings', :action => 'search', :method => 'get' do %>
+              <%= text_field_tag :search, params[:search] %>
+              <%= submit_tag "Search", :name => nil %>
+              <% end %>
+
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-</html>
+  </html>

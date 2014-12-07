@@ -1,10 +1,50 @@
 <div class="page-header">
-  <h1>Buildings</h1>
+  <h1>Search Results</h1>
 
 </div>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Zip</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
 
-<ul>
+  <tbody>
+
+
     <% @buildings.each do |building| %>
-  <li><%= building.name %> <%= building.address  %></li>
-  <% end %>
-  </ul>
+      <tr>
+        <td>
+        <a href="/buildings/<%= building.id %>" class="thumbnail">
+        <img src="<%= building.image_url %>" data-src="holder.js/100%x180" alt="Photo not found" height="90" width="90">
+        </a></td>
+        <td><%= building.name %></td>
+        <td><%= building.address %></td>
+        <td><%= building.zip %></td>
+        <td><%= building.headline %></td>
+        <td>
+          <a href="/buildings/<%= building.id %>" class="btn btn-primary">
+            <i class="fa fa-search-plus"></i>
+          </a>
+        </td>
+        <td>
+          <a href="/buildings/<%= building.id %>/edit" class="btn btn-warning">
+            <i class="fa fa-edit"></i>
+          </a>
+        </td>
+        <td>
+          <a href="/delete_building/<%= building.id %>" class="btn btn-danger">
+            <i class="fa fa-trash-o"></i>
+          </a>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
