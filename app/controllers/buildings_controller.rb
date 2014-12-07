@@ -5,10 +5,7 @@ class BuildingsController < ApplicationController
   end
 
   def search
-    #Put entry into params hash
     @buildings = Building.search(params[:search])
-    #Search name and address fields in the Building table for params
-    #Return records that match params
     render '_search'
   end
 

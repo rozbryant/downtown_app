@@ -13,7 +13,6 @@
       <th>City</th>
       <th>State</th>
       <th>Zip</th>
-      <th>Neighborhood</th>
       <th></th>
       <th></th>
       <th></th>
@@ -21,8 +20,6 @@
   </thead>
 
   <tbody>
-
-
     <% @buildings.each do |building| %>
       <tr>
         <td>
@@ -34,8 +31,6 @@
         <td><%= building.city %></td>
         <td><%= building.state %></td>
         <td><%= building.zip %></td>
-        <td><%= building.headline %></td>
-
         <td>
           <a href="/buildings/<%= building.id %>" class="btn btn-primary">
             <i class="fa fa-search-plus"></i>

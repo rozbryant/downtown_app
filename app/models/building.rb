@@ -23,7 +23,7 @@ class Building < ActiveRecord::Base
   validates :zip,         :presence => true
 
 def self.search(query)
-  where('name LIKE ? OR address LIKE ?', "%#{query}%", "%#{query}%")
+  where('name LIKE ? OR address LIKE ?', "%#{query}%", "%#{query}%" )
     end
 
 end
