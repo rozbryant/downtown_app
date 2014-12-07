@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   # Route for home page
   get('/', { :controller => 'buildings', :action => 'splash' })
 
+  get('/_search', { :controller => 'buildings', :action => 'search' })
+
+
   # Routes for the Stat resource:
   # CREATE
   get('/stats/new', { :controller => 'stats', :action => 'new' })

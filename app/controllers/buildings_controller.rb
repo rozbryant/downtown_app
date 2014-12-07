@@ -1,17 +1,21 @@
 class BuildingsController < ApplicationController
+
   def index
-    @buildings = Building.all
-  end
-
-  def splash
-
-    render 'splash'
-
+    if params[:search]
+      @buildings = Building.search(params[:search]).order("name DESC")
+    else
+      @buildings = Building.order("name DESC")
+    end
   end
 
   def search
-
+    #Put entry into params hash
+    @buildings = Building.search(params[:search])
+    #Search name and address fields in the Building table for params
+    #Return records that match params
+    render '_search'
   end
+
 
   def show
     @building = Building.find(params[:id])

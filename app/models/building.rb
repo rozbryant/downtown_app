@@ -22,4 +22,8 @@ class Building < ActiveRecord::Base
   validates :state,       :presence => true
   validates :zip,         :presence => true
 
+def self.search(query)
+  where('name LIKE ?', "%#{query}%")
+    end
+
 end
