@@ -54,8 +54,13 @@
           </ul>
         </li>
       </ul>
-      <form class="navbar-form navbar-left">
-        <input type="text" class="form-control col-lg-8" placeholder="Search">
+
+      <form action="/_search" class="navbar-form navbar-left">
+
+              <%= form_tag :controller => 'buildings', :action => 'search', :method => 'get' do %>
+              <%= text_field_tag :search, params[:search] %>
+              <%= submit_tag "Search", :name => nil %>
+              <% end %>
       </form>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
