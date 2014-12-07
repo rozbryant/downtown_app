@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   # Route for home page
   get('/', { :controller => 'buildings', :action => 'splash' })
 
