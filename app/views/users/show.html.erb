@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1>User #<%= @user.id %></h1>
+  <h1>My Account</h1>
 </div>
 
 <dl class="dl-horizontal">
@@ -35,5 +35,12 @@
 
   <dt>Country</dt>
   <dd><%= @user.country %></dd>
+
+  <h3>My Comments</h3>
+  <% @user.comments.each do |comment| %>
+  <%= comment.building.name %> |
+  <%= comment.content %>
+
+  <% end %>
 
 </dl>

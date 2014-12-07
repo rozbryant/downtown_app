@@ -30,6 +30,7 @@
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
+
 <% end %>
 
 <h3>Cancel my account</h3>
@@ -37,3 +38,102 @@
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
+
+<h3>Update Contact Information</h3>
+
+<!-- Label and input for first_name -->
+      <div class="form-group">
+        <label for="first_name" class="col-sm-2 control-label">
+          First name
+        </label>
+        <div class="col-sm-10">
+          <input type="text" id="first_name" name="first_name" placeholder="First name" class="form-control" value="<%= @user.first_name %>">
+        </div>
+      </div>
+
+      <!-- Label and input for last_name -->
+      <div class="form-group">
+        <label for="last_name" class="col-sm-2 control-label">
+          Last name
+        </label>
+        <div class="col-sm-10">
+          <input type="text" id="last_name" name="last_name" placeholder="Last name" class="form-control" value="<%= @user.last_name %>">
+        </div>
+      </div>
+
+      <!-- Label and input for phone_number -->
+      <div class="form-group">
+        <label for="phone_number" class="col-sm-2 control-label">
+          Phone number
+        </label>
+        <div class="col-sm-10">
+          <input type="text" id="phone_number" name="phone_number" placeholder="Phone number" class="form-control" value="<%= @user.phone_number %>">
+        </div>
+      </div>
+
+      <!-- Label and input for address1 -->
+      <div class="form-group">
+        <label for="address1" class="col-sm-2 control-label">
+          Address1
+        </label>
+        <div class="col-sm-10">
+          <input type="text" id="address1" name="address1" placeholder="Address1" class="form-control" value="<%= @user.address1 %>">
+        </div>
+      </div>
+
+      <!-- Label and input for address2 -->
+      <div class="form-group">
+        <label for="address2" class="col-sm-2 control-label">
+          Address2
+        </label>
+        <div class="col-sm-10">
+          <input type="text" id="address2" name="address2" placeholder="Address2" class="form-control" value="<%= @user.address2 %>">
+        </div>
+      </div>
+
+      <!-- Label and input for city -->
+      <div class="form-group">
+        <label for="city" class="col-sm-2 control-label">
+          City
+        </label>
+        <div class="col-sm-10">
+          <input type="text" id="city" name="city" placeholder="City" class="form-control" value="<%= @user.city %>">
+        </div>
+      </div>
+
+      <!-- Label and input for state -->
+      <div class="form-group">
+        <label for="state" class="col-sm-2 control-label">
+          State
+        </label>
+        <div class="col-sm-10">
+          <input type="text" id="state" name="state" placeholder="State" class="form-control" value="<%= @user.state %>">
+        </div>
+      </div>
+
+      <!-- Label and input for zip -->
+      <div class="form-group">
+        <label for="zip" class="col-sm-2 control-label">
+          Zip
+        </label>
+        <div class="col-sm-10">
+          <input type="text" id="zip" name="zip" placeholder="Zip" class="form-control" value="<%= @user.zip %>">
+        </div>
+      </div>
+
+      <!-- Label and input for country -->
+      <div class="form-group">
+        <label for="country" class="col-sm-2 control-label">
+          Country
+        </label>
+        <div class="col-sm-10">
+          <input type="text" id="country" name="country" placeholder="Country" class="form-control" value="<%= @user.country %>">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <input type="submit" value="Update User" class="btn btn-primary">
+
+          </div>
+</div>

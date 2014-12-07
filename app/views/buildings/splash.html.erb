@@ -18,12 +18,14 @@
         <div class="jumbotron">
           <h2>Search Chicago Condo Buildings</h2>
           <p>Don't just fall in love with an apartment. Make sure the building fits.</p>
-          <div class="form-group">
+          <% if current_user.present? %>
+            <div class="form-group">
             <label class="control-label" for="focusedInput">Start here.</label>
             <form action="/_search" class="form-horizontal">
               <%= form_tag :controller => 'buildings', :action => 'search', :method => 'get' do %>
               <%= text_field_tag :search, params[:search] %>
               <%= submit_tag "Search", :name => nil %>
+              <% end %>
               <% end %>
               </form>
             </div>
