@@ -32,6 +32,7 @@
         <h1><%= @building.name %></h1>
       </div>
     </div>
+    <% if current_user.present? %>
     <div class="row">
       <div class="col-md-6">
         <h5><%= @building.address %>, <%= @building.city %>, <%= @building.state %> <%= @building.zip %> <%= @building.headline %> </h5>
@@ -55,196 +56,199 @@
           </div>
         </div>
         <!-- neighborhood code -->
-          <div class="col-md-2">
-            <div class="panel panel-primary">
-              <div class="panel-heading">
-                <h3 class="panel-title">Neighborhoods</h3>
-              </div>
-              <div class="panel-body">
-                <% @building.assignments.each do |assignment| %>
-                <%= assignment.area.name %>
+        <div class="col-md-2">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Neighborhoods</h3>
+            </div>
+            <div class="panel-body">
+              <% @building.assignments.each do |assignment| %>
+              <%= assignment.area.name %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Services</h3>
+            </div>
+            <div class="panel-body">
+              <ul>
+                <% if @building.service.part_door == true  %>
+                <li><%= "Part-time doorman" %></li>
                 <% end %>
-              </div>
+                <% if @building.service.full_door == true  %>
+                <li><%= "Full-time doorman" %></li>
+                <% end %>
+                <% if @building.service.catering == true  %>
+                <li><%= "Catering" %></li>
+                <% end %>
+                <% if @building.service.housekeeping == true  %>
+                <li><%= "Housekeeping" %></li>
+                <% end %>
+                <% if @building.service.dry_cleaning == true  %>
+                <li><%= "Dry Cleaning" %></li>
+                <% end %>
+                <% if @building.service.concierge == true  %>
+                <li><%= "Concierge" %></li>
+                <% end %>
+                <% if @building.service.package_receiving == true  %>
+                <li><%= "Package-Receiving" %></li>
+                <% end %>
+                <% if @building.service.car_wash == true  %>
+                <li><%= "Car Wash" %></li>
+                <% end %>
+                <% if @building.service.dog_wash == true  %>
+                <li><%= "Dog Wash" %></li>
+                <% end %>
+                <% if @building.service.restaurant == true  %>
+                <li><%= "Restaurant" %></li>
+                <% end %>
+                <% if @building.service.social == true  %>
+                <li><%= "Social Life" %></li>
+                <% end %>
+                <% if @building.service.groceries == true  %>
+                <li><%= "Convenience Store" %></li>
+                <% end %>
+              </ul>
             </div>
           </div>
-          <div class="col-md-2">
+        </div>
+        <div class="col-md-2">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Health Fitness</h3>
+            </div>
+            <div class="panel-body">
+              <ul>
+                <% if @building.active.fitness == true  %>
+                <li><%= "Fitness Center" %></li>
+                <% end %>
+                <% if @building.active.in_pool == true  %>
+                <li><%= "Indoor Pool" %></li>
+                <% end %>
+                <% if @building.active.out_pool == true  %>
+                <li><%= "Outdoor Pool" %></li>
+                <% end %>
+                <% if @building.active.in_tennis == true  %>
+                <li><%= "Indoor Tennis Courts" %></li>
+                <% end %>
+                <% if @building.active.out_tennis == true  %>
+                <li><%= "Outdoor Tennis Courts" %></li>
+                <% end %>
+                <% if @building.active.bball == true  %>
+                <li><%= "Basketball Courts" %></li>
+                <% end %>
+                <% if @building.active.spa == true  %>
+                <li><%= "Spa/Sauna" %></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- restrictions code -->
+        <div class="col-md-2">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Restrictions</h3>
+            </div>
+            <div class="panel-body">
+              <ul>
+                <% if @building.restriction.no_rental == true  %>
+                <li><%= "No Rentals" %></li>
+                <% end %>
+                <% if @building.restriction.credit == true  %>
+                <li><%= "Credit Approval" %></li>
+                <% end %>
+                <% if @building.restriction.reference == true  %>
+                <li><%= "References Required" %></li>
+                <% end %>
+                <% if @building.restriction.interview == true  %>
+                <li><%= "Interview Required" %></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- spaces code -->
+        <div class="col-md-2">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Common Areas</h3>
+            </div>
+            <div class="panel-body">
+              <ul>
+                <% if @building.space.storage == true  %>
+                <li><%= "Storage" %></li>
+                <% end %>
+                <% if @building.space.bike_storage == true  %>
+                <li><%= "Bike Storage" %></li>
+                <% end %>
+                <% if @building.space.party_room == true  %>
+                <li><%= "Party Room" %></li>
+                <% end %>
+                <% if @building.space.sundeck == true  %>
+                <li><%= "Sundeck" %></li>
+                <% end %>
+                <% if @building.space.parking_leased == true  %>
+                <li><%= "Leased Parking" %></li>
+                <% end %>
+                <% if @building.space.parking_owned == true  %>
+                <li><%= "Deeded Parking" %></li>
+                <% end %>
+                <% if @building.space.wine_cellar == true  %>
+                <li><%= "Wine Cellar" %></li>
+                <% end %>
+                <% if @building.space.humidor == true  %>
+                <li><%= "Humidor" %></li>
+                <% end %>
+                <% if @building.space.dog_run == true  %>
+                <li><%= "Dog Run" %></li>
+                <% end %>
+                <% if @building.space.lounge == true  %>
+                <li><%= "Lounge" %></li>
+                <% end %>
+                <% if @building.space.biz_center == true  %>
+                <li><%= "Business Center" %></li>
+                <% end %>
+                <% if @building.space.conf_room == true  %>
+                <li><%= "Conference Room" %></li>
+                <% end %>
+                <% if @building.space.theater == true  %>
+                <li><%= "Theater" %></li>
+                <% end %>
+                <% if @building.space.guest_parking == true  %>
+                <li><%= "Guest Parking" %></li>
+                <% end %>
+                <% if @building.space.guest_stay == true  %>
+                <li><%= "Guest Accomodations" %></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
             <div class="panel panel-primary">
               <div class="panel-heading">
-                <h3 class="panel-title">Services</h3>
+                <h3 class="panel-title">Comments</h3>
               </div>
               <div class="panel-body">
-                <ul>
-                  <% if @building.service.part_door == true  %>
-                  <li><%= "Part-time doorman" %></li>
-                  <% end %>
-                  <% if @building.service.full_door == true  %>
-                  <li><%= "Full-time doorman" %></li>
-                  <% end %>
-                  <% if @building.service.catering == true  %>
-                  <li><%= "Catering" %></li>
-                  <% end %>
-                  <% if @building.service.housekeeping == true  %>
-                  <li><%= "Housekeeping" %></li>
-                  <% end %>
-                  <% if @building.service.dry_cleaning == true  %>
-                  <li><%= "Dry Cleaning" %></li>
-                  <% end %>
-                  <% if @building.service.concierge == true  %>
-                  <li><%= "Concierge" %></li>
-                  <% end %>
-                  <% if @building.service.package_receiving == true  %>
-                  <li><%= "Package-Receiving" %></li>
-                  <% end %>
-                  <% if @building.service.car_wash == true  %>
-                  <li><%= "Car Wash" %></li>
-                  <% end %>
-                  <% if @building.service.dog_wash == true  %>
-                  <li><%= "Dog Wash" %></li>
-                  <% end %>
-                  <% if @building.service.restaurant == true  %>
-                  <li><%= "Restaurant" %></li>
-                  <% end %>
-                  <% if @building.service.social == true  %>
-                  <li><%= "Social Life" %></li>
-                  <% end %>
-                  <% if @building.service.groceries == true  %>
-                  <li><%= "Convenience Store" %></li>
-                  <% end %>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-2">
-            <div class="panel panel-primary">
-              <div class="panel-heading">
-                <h3 class="panel-title">Health Fitness</h3>
-              </div>
-              <div class="panel-body">
-                <ul>
-                  <% if @building.active.fitness == true  %>
-                  <li><%= "Fitness Center" %></li>
-                  <% end %>
-                  <% if @building.active.in_pool == true  %>
-                  <li><%= "Indoor Pool" %></li>
-                  <% end %>
-                  <% if @building.active.out_pool == true  %>
-                  <li><%= "Outdoor Pool" %></li>
-                  <% end %>
-                  <% if @building.active.in_tennis == true  %>
-                  <li><%= "Indoor Tennis Courts" %></li>
-                  <% end %>
-                  <% if @building.active.out_tennis == true  %>
-                  <li><%= "Outdoor Tennis Courts" %></li>
-                  <% end %>
-                  <% if @building.active.bball == true  %>
-                  <li><%= "Basketball Courts" %></li>
-                  <% end %>
-                  <% if @building.active.spa == true  %>
-                  <li><%= "Spa/Sauna" %></li>
-                  <% end %>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <!-- restrictions code -->
-          <div class="col-md-2">
-            <div class="panel panel-primary">
-              <div class="panel-heading">
-                <h3 class="panel-title">Restrictions</h3>
-              </div>
-              <div class="panel-body">
-                <ul>
-                  <% if @building.restriction.no_rental == true  %>
-                  <li><%= "No Rentals" %></li>
-                  <% end %>
-                  <% if @building.restriction.credit == true  %>
-                  <li><%= "Credit Approval" %></li>
-                  <% end %>
-                  <% if @building.restriction.reference == true  %>
-                  <li><%= "References Required" %></li>
-                  <% end %>
-                  <% if @building.restriction.interview == true  %>
-                  <li><%= "Interview Required" %></li>
-                  <% end %>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <!-- spaces code -->
-          <div class="col-md-2">
-            <div class="panel panel-primary">
-              <div class="panel-heading">
-                <h3 class="panel-title">Common Areas</h3>
-              </div>
-              <div class="panel-body">
-                <ul>
-                  <% if @building.space.storage == true  %>
-                  <li><%= "Storage" %></li>
-                  <% end %>
-                  <% if @building.space.bike_storage == true  %>
-                  <li><%= "Bike Storage" %></li>
-                  <% end %>
-                  <% if @building.space.party_room == true  %>
-                  <li><%= "Party Room" %></li>
-                  <% end %>
-                  <% if @building.space.sundeck == true  %>
-                  <li><%= "Sundeck" %></li>
-                  <% end %>
-                  <% if @building.space.parking_leased == true  %>
-                  <li><%= "Leased Parking" %></li>
-                  <% end %>
-                  <% if @building.space.parking_owned == true  %>
-                  <li><%= "Deeded Parking" %></li>
-                  <% end %>
-                  <% if @building.space.wine_cellar == true  %>
-                  <li><%= "Wine Cellar" %></li>
-                  <% end %>
-                  <% if @building.space.humidor == true  %>
-                  <li><%= "Humidor" %></li>
-                  <% end %>
-                  <% if @building.space.dog_run == true  %>
-                  <li><%= "Dog Run" %></li>
-                  <% end %>
-                  <% if @building.space.lounge == true  %>
-                  <li><%= "Lounge" %></li>
-                  <% end %>
-                  <% if @building.space.biz_center == true  %>
-                  <li><%= "Business Center" %></li>
-                  <% end %>
-                  <% if @building.space.conf_room == true  %>
-                  <li><%= "Conference Room" %></li>
-                  <% end %>
-                  <% if @building.space.theater == true  %>
-                  <li><%= "Theater" %></li>
-                  <% end %>
-                  <% if @building.space.guest_parking == true  %>
-                  <li><%= "Guest Parking" %></li>
-                  <% end %>
-                  <% if @building.space.guest_stay == true  %>
-                  <li><%= "Guest Accomodations" %></li>
-                  <% end %>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="panel panel-primary">
-                <div class="panel-heading">
-                  <h3 class="panel-title">Comments</h3>
-                </div>
-                <div class="panel-body">
-                  <div class="well well-md">
-                    <% @building.comments.each do |building_comment| %><ul>
-                    <%= building_comment.created_at %>
-                    <p>
-                      <strong><%= building_comment.user.first_name %></strong>: <%= building_comment.content %>
-                      <% end %>
-                    </p>
-                  </div>
+                <div class="well well-md">
+                  <% @building.comments.each do |building_comment| %><ul>
+                  <%= building_comment.created_at %>
+                  <p>
+                    <strong><%= building_comment.user.first_name %></strong>: <%= building_comment.content %>
+                    <% end %>
+                    <% else %>
+                    Please sign in to view
+                    <% end %>
+                  </p>
                 </div>
               </div>
             </div>
           </div>
-        </body>
-        </html>
+        </div>
+      </body>
+      </html>
