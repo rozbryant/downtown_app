@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 #Validations
 
   validates :email, :presence => true
-  validates :name, :uniqueness => true
+  validates :email, :uniqueness => true
 
 
 

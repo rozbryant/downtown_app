@@ -6,20 +6,24 @@
   </title>
   <style type="text/css">
 
-    #header {
+    .header {
       float: left;
     }
 
-    #photo {
+    .photo {
       float: left;
     }
 
-    #attributes {
+    .attributes {
       float: left;
     }
 
-    #comments {
+    .comments {
       clear: both;
+    }
+
+    .well{
+      background-color: rgb(216, 216, 216);
     }
 
   </style>
@@ -31,7 +35,6 @@
       <div class="col-md-12">
         <h1><%= @building.name %></h1>
       </div>
-
     </div>
     <div class="row">
       <div class="col-md-6">
@@ -39,38 +42,33 @@
       </div>
       <div class="col-md-6" align="right">
         <h5><%= @building.stat.unit_count %> units, <%= @building.stat.stories %> stories</h5>
+        <% end %>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-2">
-        <a href="/favoritings/new" class="btn btn-warning btn-md">Save to Favorites</a>
-      </div>
-      <div class="col-md-2">
+      <div class="col-md-6" align="left">
+        <a href="/favoritings/new" class="btn btn-warning btn-sm">Save to Favorites</a>
         <!-- followings -->
-        <a href="/followings/new" class="btn btn-warning btn-md">Follow New Units</a>
+        <a href="/followings/new" class="btn btn-warning btn-sm">Follow New Units</a>
       </div>
     </div>
     <div class="row">
       <div class="photo">
-        <div class="col-md-6" align="left">
-          <div class="well well-sm">
+        <div class="col-md-6" align="center">
+          <div class="well well-lg">
             <img src="<%= @building.image_url %>" width=400px height=400px alt="<%= @building.name %>" class="img-responsive">
           </div>
         </div>
-        <div class="attributes">
-          <!-- neighborhood code -->
-          <div class="col-md-2">
-            <div class="panel panel-primary">
-
-              <div class="panel-heading">
-                <h3 class="panel-title">Neighborhoods</h3>
-              </div>
-              <div class="panel-body">
-                <% @building.assignments.each do |assignment| %>
-                <%= assignment.area.name %>
-                <% end %>
-
-              </div>
+        <!-- neighborhood code -->
+        <div class="col-md-2">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Neighborhoods</h3>
+            </div>
+            <div class="panel-body">
+              <% @building.assignments.each do |assignment| %>
+              <%= assignment.area.name %>
+              <% end %>
             </div>
           </div>
         </div>
@@ -153,105 +151,108 @@
             </div>
           </div>
         </div>
-      </div>
-      <!-- restrictions code -->
-      <div class="col-md-2">
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h3 class="panel-title">Restrictions</h3>
-          </div>
-          <div class="panel-body">
-            <ul>
-              <% if @building.restriction.no_rental == true  %>
-              <li><%= "No Rentals" %></li>
-              <% end %>
-              <% if @building.restriction.credit == true  %>
-              <li><%= "Credit Approval" %></li>
-              <% end %>
-              <% if @building.restriction.reference == true  %>
-              <li><%= "References Required" %></li>
-              <% end %>
-              <% if @building.restriction.interview == true  %>
-              <li><%= "Interview Required" %></li>
-              <% end %>
-            </ul>
+        <!-- restrictions code -->
+        <div class="col-md-2">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Restrictions</h3>
+            </div>
+            <div class="panel-body">
+              <ul>
+                <% if @building.restriction.no_rental == true  %>
+                <li><%= "No Rentals" %></li>
+                <% end %>
+                <% if @building.restriction.credit == true  %>
+                <li><%= "Credit Approval" %></li>
+                <% end %>
+                <% if @building.restriction.reference == true  %>
+                <li><%= "References Required" %></li>
+                <% end %>
+                <% if @building.restriction.interview == true  %>
+                <li><%= "Interview Required" %></li>
+                <% end %>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-      <!-- spaces code -->
-      <div class="col-md-2">
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h3 class="panel-title">Common Areas</h3>
+        <!-- spaces code -->
+        <div class="col-md-2">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Common Areas</h3>
+            </div>
+            <div class="panel-body">
+              <ul>
+                <% if @building.space.storage == true  %>
+                <li><%= "Storage" %></li>
+                <% end %>
+                <% if @building.space.bike_storage == true  %>
+                <li><%= "Bike Storage" %></li>
+                <% end %>
+                <% if @building.space.party_room == true  %>
+                <li><%= "Party Room" %></li>
+                <% end %>
+                <% if @building.space.sundeck == true  %>
+                <li><%= "Sundeck" %></li>
+                <% end %>
+                <% if @building.space.parking_leased == true  %>
+                <li><%= "Leased Parking" %></li>
+                <% end %>
+                <% if @building.space.parking_owned == true  %>
+                <li><%= "Deeded Parking" %></li>
+                <% end %>
+                <% if @building.space.wine_cellar == true  %>
+                <li><%= "Wine Cellar" %></li>
+                <% end %>
+                <% if @building.space.humidor == true  %>
+                <li><%= "Humidor" %></li>
+                <% end %>
+                <% if @building.space.dog_run == true  %>
+                <li><%= "Dog Run" %></li>
+                <% end %>
+                <% if @building.space.lounge == true  %>
+                <li><%= "Lounge" %></li>
+                <% end %>
+                <% if @building.space.biz_center == true  %>
+                <li><%= "Business Center" %></li>
+                <% end %>
+                <% if @building.space.conf_room == true  %>
+                <li><%= "Conference Room" %></li>
+                <% end %>
+                <% if @building.space.theater == true  %>
+                <li><%= "Theater" %></li>
+                <% end %>
+                <% if @building.space.guest_parking == true  %>
+                <li><%= "Guest Parking" %></li>
+                <% end %>
+                <% if @building.space.guest_stay == true  %>
+                <li><%= "Guest Accomodations" %></li>
+                <% end %>
+              </ul>
+            </div>
           </div>
-          <div class="panel-body">
-            <ul>
-              <% if @building.space.storage == true  %>
-              <li><%= "Storage" %></li>
-              <% end %>
-              <% if @building.space.bike_storage == true  %>
-              <li><%= "Bike Storage" %></li>
-              <% end %>
-              <% if @building.space.party_room == true  %>
-              <li><%= "Party Room" %></li>
-              <% end %>
-              <% if @building.space.sundeck == true  %>
-              <li><%= "Sundeck" %></li>
-              <% end %>
-              <% if @building.space.parking_leased == true  %>
-              <li><%= "Leased Parking" %></li>
-              <% end %>
-              <% if @building.space.parking_owned == true  %>
-              <li><%= "Deeded Parking" %></li>
-              <% end %>
-              <% if @building.space.wine_cellar == true  %>
-              <li><%= "Wine Cellar" %></li>
-              <% end %>
-              <% if @building.space.humidor == true  %>
-              <li><%= "Humidor" %></li>
-              <% end %>
-              <% if @building.space.dog_run == true  %>
-              <li><%= "Dog Run" %></li>
-              <% end %>
-              <% if @building.space.lounge == true  %>
-              <li><%= "Lounge" %></li>
-              <% end %>
-              <% if @building.space.biz_center == true  %>
-              <li><%= "Business Center" %></li>
-              <% end %>
-              <% if @building.space.conf_room == true  %>
-              <li><%= "Conference Room" %></li>
-              <% end %>
-              <% if @building.space.theater == true  %>
-              <li><%= "Theater" %></li>
-              <% end %>
-              <% if @building.space.guest_parking == true  %>
-              <li><%= "Guest Parking" %></li>
-              <% end %>
-              <% if @building.space.guest_stay == true  %>
-              <li><%= "Guest Accomodations" %></li>
-              <% end %>
-            </ul>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title">Comments</h3>
+              </div>
+              <div class="panel-body">
+                <div class="well well-md">
+                  <% @building.comments.each do |building_comment| %><ul>
+                  <%= building_comment.created_at %>
+                  <p>
+                    <strong><%= building_comment.user.first_name %></strong>: <%= building_comment.content %>
+                  <% end %>
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="comments">
-      <div class="col-md-12">
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h3 class="panel-title">Comments</h3>
-          </div>
-          <div class="panel-body">
-            <% @building.comments.each do |building_comment| %><ul>
-            <%= building_comment.user.email %>
-            <%= building_comment.content %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>
-  </html>
-
-
+  </div>
+</body>
+</html>

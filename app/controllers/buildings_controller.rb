@@ -19,6 +19,10 @@ class BuildingsController < ApplicationController
     @building = Building.new
   end
 
+  def add_comment
+    @comment = Comment.new
+  end
+
   def create
     @building = Building.new
     @building.image_url = params[:image_url]

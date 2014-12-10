@@ -39,19 +39,25 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
+      <% if current_user.present? %>
+      <li><form action="/_search" class="form-horizontal">
+              <%= form_tag :controller => 'buildings', :action => 'search', :method => 'get' do %>
+              <%= text_field_tag :search, params[:search] %>
+              <%= submit_tag "Search", :name => nil %>
+              <% end %></form></li>
         <li><a href="/buildings">Buildings</a></li>
         <li><a href="/areas">Neighborhoods</a></li>
         <li><a href="/users">Users</a></li>
         <li><a href="/comments">Comments</a></li>
         <li><a href="/favoritings">Favoritings</a></li>
         <li><a href="/followings">Followings</a></li>
-
+      <% end %>
         <!-- <li><a href="/followings">Followings</a></li> -->
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
         <% if current_user.present? %>
-          <li><a href="/users/edit"><%= current_user.email %></a></li>
+          <li><a href="/users/show">Hi <%= current_user.email %></a></li>
           <li><a href="/users/sign_out" data-method="delete">Sign out</a></li>
         <% else %>
           <li><a href="/users/sign_up">Sign up</a></li>
