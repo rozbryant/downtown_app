@@ -7,10 +7,9 @@ class Comment < ActiveRecord::Base
 #Validations
 
   validates :user, :presence => true
-  validates :commenter_id, :uniqueness => { :scope => :building_id }
+
 
   validates :building, :presence => true
-  validates :building_id, :uniqueness => { :scope => :commenter_id }
 
   validates :content, :presence => true
 
