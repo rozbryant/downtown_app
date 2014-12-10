@@ -25,7 +25,7 @@
   <tbody>
     <% @actives.each do |active| %>
       <tr>
-        <td><%= active.building_id %></td>
+        <td><%= active.building.name %></td>
         <td><%= active.fitness %></td>
         <td><%= active.in_pool %></td>
         <td><%= active.out_pool %></td>

@@ -7,6 +7,14 @@ class Building < ActiveRecord::Base
   has_many(:followings,   { :class_name => "Following", :foreign_key => "building_id" })
   has_many(:assignments,  { :class_name => "Assignment", :foreign_key => "building_id" })
 
+#One to one associations
+
+  has_one :active
+  has_one :restriction
+  has_one :service
+  has_one :space
+  has_one :stat
+
 #Many to many associations
 
   has_many :areas, :through => :assignments

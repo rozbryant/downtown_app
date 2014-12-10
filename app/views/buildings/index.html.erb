@@ -8,8 +8,8 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th></th>
       <th>Name</th>
+      <th>ID</th>
       <th>Address</th>
       <th>City</th>
       <th>State</th>
@@ -27,6 +27,7 @@
         <a href="/buildings/<%= building.id %>" class="thumbnail">
         <img src="<%= building.image_url %>" data-src="holder.js/100%x180" alt="Photo not found" height="90" width="90">
         </a></td>
+        <td><%= building.id %></td>
         <td><%= building.name %></td>
         <td><%= building.address %></td>
         <td><%= building.city %></td>
