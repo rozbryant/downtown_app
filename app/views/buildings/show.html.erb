@@ -47,227 +47,252 @@
     </div>
     <div class="row">
       <div class="col-md-6" align="left">
-        <a href="/favoritings/new" class="btn btn-warning btn-sm">Save to Favorites</a>
+        <!-- favoritings -->
+        <form role="form" action="/create_favoriting" class="form-inline">
+          <div class="form-group">
+            <input type="hidden" placeholder="favorited_by" name="favorited_by" class="form-control" value="<%= current_user.id %>">
+
+            <input type="hidden" placeholder="building_id" name="building_id" class="form-control" value="<%= @building.id %>">
+            <button type="submit" class="btn btn-warning btn-sm">Save to Favorites</button>
+          </div>
+        </form>
         <!-- followings -->
-        <a href="/followings/new" class="btn btn-warning btn-sm">Follow New Units</a>
-      </div>
-    </div>
-    <div class="row">
-      <div class="photo">
-        <div class="col-md-6" align="center">
-          <div class="well well-lg">
-            <img src="<%= @building.image_url %>" width=400px height=400px alt="<%= @building.name %>" class="img-responsive">
-          </div>
-        </div>
-        <!-- neighborhood code -->
-        <div class="col-md-2">
-          <div class="panel panel-primary">
-            <div class="panel-heading">
-              <h3 class="panel-title">Neighborhoods</h3>
-            </div>
-            <div class="panel-body">
-              <% @building.assignments.each do |assignment| %>
-              <%= assignment.area.name %>
-              <% end %>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-2">
-          <div class="panel panel-primary">
-            <div class="panel-heading">
-              <h3 class="panel-title">Services</h3>
-            </div>
-            <div class="panel-body">
-              <ul>
-                <% if @building.service.part_door == true  %>
-                <li><%= "Part-time doorman" %></li>
-                <% end %>
-                <% if @building.service.full_door == true  %>
-                <li><%= "Full-time doorman" %></li>
-                <% end %>
-                <% if @building.service.catering == true  %>
-                <li><%= "Catering" %></li>
-                <% end %>
-                <% if @building.service.housekeeping == true  %>
-                <li><%= "Housekeeping" %></li>
-                <% end %>
-                <% if @building.service.dry_cleaning == true  %>
-                <li><%= "Dry Cleaning" %></li>
-                <% end %>
-                <% if @building.service.concierge == true  %>
-                <li><%= "Concierge" %></li>
-                <% end %>
-                <% if @building.service.package_receiving == true  %>
-                <li><%= "Package-Receiving" %></li>
-                <% end %>
-                <% if @building.service.car_wash == true  %>
-                <li><%= "Car Wash" %></li>
-                <% end %>
-                <% if @building.service.dog_wash == true  %>
-                <li><%= "Dog Wash" %></li>
-                <% end %>
-                <% if @building.service.restaurant == true  %>
-                <li><%= "Restaurant" %></li>
-                <% end %>
-                <% if @building.service.social == true  %>
-                <li><%= "Social Life" %></li>
-                <% end %>
-                <% if @building.service.groceries == true  %>
-                <li><%= "Convenience Store" %></li>
-                <% end %>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-2">
-          <div class="panel panel-primary">
-            <div class="panel-heading">
-              <h3 class="panel-title">Health Fitness</h3>
-            </div>
-            <div class="panel-body">
-              <ul>
-                <% if @building.active.fitness == true  %>
-                <li><%= "Fitness Center" %></li>
-                <% end %>
-                <% if @building.active.in_pool == true  %>
-                <li><%= "Indoor Pool" %></li>
-                <% end %>
-                <% if @building.active.out_pool == true  %>
-                <li><%= "Outdoor Pool" %></li>
-                <% end %>
-                <% if @building.active.in_tennis == true  %>
-                <li><%= "Indoor Tennis Courts" %></li>
-                <% end %>
-                <% if @building.active.out_tennis == true  %>
-                <li><%= "Outdoor Tennis Courts" %></li>
-                <% end %>
-                <% if @building.active.bball == true  %>
-                <li><%= "Basketball Courts" %></li>
-                <% end %>
-                <% if @building.active.spa == true  %>
-                <li><%= "Spa/Sauna" %></li>
-                <% end %>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <!-- restrictions code -->
-        <div class="col-md-2">
-          <div class="panel panel-primary">
-            <div class="panel-heading">
-              <h3 class="panel-title">Restrictions</h3>
-            </div>
-            <div class="panel-body">
-              <ul>
-                <% if @building.restriction.no_rental == true  %>
-                <li><%= "No Rentals" %></li>
-                <% end %>
-                <% if @building.restriction.credit == true  %>
-                <li><%= "Credit Approval" %></li>
-                <% end %>
-                <% if @building.restriction.reference == true  %>
-                <li><%= "References Required" %></li>
-                <% end %>
-                <% if @building.restriction.interview == true  %>
-                <li><%= "Interview Required" %></li>
-                <% end %>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <!-- spaces code -->
-        <div class="col-md-2">
-          <div class="panel panel-primary">
-            <div class="panel-heading">
-              <h3 class="panel-title">Common Areas</h3>
-            </div>
-            <div class="panel-body">
-              <ul>
-                <% if @building.space.storage == true  %>
-                <li><%= "Storage" %></li>
-                <% end %>
-                <% if @building.space.bike_storage == true  %>
-                <li><%= "Bike Storage" %></li>
-                <% end %>
-                <% if @building.space.party_room == true  %>
-                <li><%= "Party Room" %></li>
-                <% end %>
-                <% if @building.space.sundeck == true  %>
-                <li><%= "Sundeck" %></li>
-                <% end %>
-                <% if @building.space.parking_leased == true  %>
-                <li><%= "Leased Parking" %></li>
-                <% end %>
-                <% if @building.space.parking_owned == true  %>
-                <li><%= "Deeded Parking" %></li>
-                <% end %>
-                <% if @building.space.wine_cellar == true  %>
-                <li><%= "Wine Cellar" %></li>
-                <% end %>
-                <% if @building.space.humidor == true  %>
-                <li><%= "Humidor" %></li>
-                <% end %>
-                <% if @building.space.dog_run == true  %>
-                <li><%= "Dog Run" %></li>
-                <% end %>
-                <% if @building.space.lounge == true  %>
-                <li><%= "Lounge" %></li>
-                <% end %>
-                <% if @building.space.biz_center == true  %>
-                <li><%= "Business Center" %></li>
-                <% end %>
-                <% if @building.space.conf_room == true  %>
-                <li><%= "Conference Room" %></li>
-                <% end %>
-                <% if @building.space.theater == true  %>
-                <li><%= "Theater" %></li>
-                <% end %>
-                <% if @building.space.guest_parking == true  %>
-                <li><%= "Guest Parking" %></li>
-                <% end %>
-                <% if @building.space.guest_stay == true  %>
-                <li><%= "Guest Accomodations" %></li>
-                <% end %>
-              </ul>
-            </div>
+        <form role="form" action="/create_following" class="form-inline">
+          <div class="form-group">
+            <input type="hidden" placeholder="follower" name="follower" class="form-control" value="<%= current_user.id %>">
+
+            <input type="hidden" placeholder="building_id" name="building_id" class="form-control" value="<%= @building.id %>">
+            <div class="dropdown">
+              <button type="button" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false"><i class="fa fa-user"></i>
+                Get Notifications
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                <li><label for="buyer">Pre-Market Units</label>
+                <input id="buyer" type="checkbox" placeholder="buyer" name="buyer" class="form-control"></li>
+                <li><label for="seller">Interested Buyers</label>
+                  <input id="seller" type="checkbox" placeholder="seller" name="seller" class="form-control"> </li>
+                </ul>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
         <div class="row">
-          <div class="col-md-12">
-            <div class="panel panel-primary">
-              <div class="panel-heading">
-                <h3 class="panel-title">Comments About <%= @building.name %></h3>
+          <div class="photo">
+            <div class="col-md-6" align="center">
+              <div class="well well-lg">
+                <img src="<%= @building.image_url %>" width=400px height=400px alt="<%= @building.name %>" class="img-responsive">
               </div>
-              <div class="media">
-                <div class="media-body">
-                  <form role="form" action="/create_comment" class="form-inline">
-                    <div class="form-group">
-                      <div class="col-sm-10">
-                        <textarea id="content" type="text" placeholder="Comment on this building." name="content" class="form-control"></textarea>
-                      </div>
-
-                      <input type="hidden" placeholder="commenter_id" name="commenter_id" class="form-control" value="<%= current_user.id %>">
-
-                      <input type="hidden" placeholder="building_id" name="building_id" class="form-control" value="<%= @building.id %>">
-                    </div>
-                    <input type="submit" class="btn btn-success">
-                  </form>
+            </div>
+            <!-- neighborhood code -->
+            <div class="col-md-2">
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Neighborhoods</h3>
+                </div>
+                <div class="panel-body">
+                  <% @building.assignments.each do |assignment| %>
+                  <%= assignment.area.name %>
+                  <% end %>
                 </div>
               </div>
-              <!-- <div class="panel-body"> -->
-              <div class="well well-md">
-                <% @building.comments.each do |building_comment| %>
-                <small><%= time_ago_in_words(building_comment.created_at) %> ago</small>
-                <p><strong><%= building_comment.user.email %></strong>: <%= building_comment.content %></p>
-                <% end %>
-                <% else %>
-                Please <a href="/users/sign_in">sign in</a> to view comment on <%= @building.name %>.
-                <% end %>
-              </p>
+            </div>
+            <div class="col-md-2">
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Services</h3>
+                </div>
+                <div class="panel-body">
+                  <ul>
+                    <% if @building.service.part_door == true  %>
+                    <li><%= "Part-time doorman" %></li>
+                    <% end %>
+                    <% if @building.service.full_door == true  %>
+                    <li><%= "Full-time doorman" %></li>
+                    <% end %>
+                    <% if @building.service.catering == true  %>
+                    <li><%= "Catering" %></li>
+                    <% end %>
+                    <% if @building.service.housekeeping == true  %>
+                    <li><%= "Housekeeping" %></li>
+                    <% end %>
+                    <% if @building.service.dry_cleaning == true  %>
+                    <li><%= "Dry Cleaning" %></li>
+                    <% end %>
+                    <% if @building.service.concierge == true  %>
+                    <li><%= "Concierge" %></li>
+                    <% end %>
+                    <% if @building.service.package_receiving == true  %>
+                    <li><%= "Package-Receiving" %></li>
+                    <% end %>
+                    <% if @building.service.car_wash == true  %>
+                    <li><%= "Car Wash" %></li>
+                    <% end %>
+                    <% if @building.service.dog_wash == true  %>
+                    <li><%= "Dog Wash" %></li>
+                    <% end %>
+                    <% if @building.service.restaurant == true  %>
+                    <li><%= "Restaurant" %></li>
+                    <% end %>
+                    <% if @building.service.social == true  %>
+                    <li><%= "Social Life" %></li>
+                    <% end %>
+                    <% if @building.service.groceries == true  %>
+                    <li><%= "Convenience Store" %></li>
+                    <% end %>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Health Fitness</h3>
+                </div>
+                <div class="panel-body">
+                  <ul>
+                    <% if @building.active.fitness == true  %>
+                    <li><%= "Fitness Center" %></li>
+                    <% end %>
+                    <% if @building.active.in_pool == true  %>
+                    <li><%= "Indoor Pool" %></li>
+                    <% end %>
+                    <% if @building.active.out_pool == true  %>
+                    <li><%= "Outdoor Pool" %></li>
+                    <% end %>
+                    <% if @building.active.in_tennis == true  %>
+                    <li><%= "Indoor Tennis Courts" %></li>
+                    <% end %>
+                    <% if @building.active.out_tennis == true  %>
+                    <li><%= "Outdoor Tennis Courts" %></li>
+                    <% end %>
+                    <% if @building.active.bball == true  %>
+                    <li><%= "Basketball Courts" %></li>
+                    <% end %>
+                    <% if @building.active.spa == true  %>
+                    <li><%= "Spa/Sauna" %></li>
+                    <% end %>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- restrictions code -->
+            <div class="col-md-2">
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Restrictions</h3>
+                </div>
+                <div class="panel-body">
+                  <ul>
+                    <% if @building.restriction.no_rental == true  %>
+                    <li><%= "No Rentals" %></li>
+                    <% end %>
+                    <% if @building.restriction.credit == true  %>
+                    <li><%= "Credit Approval" %></li>
+                    <% end %>
+                    <% if @building.restriction.reference == true  %>
+                    <li><%= "References Required" %></li>
+                    <% end %>
+                    <% if @building.restriction.interview == true  %>
+                    <li><%= "Interview Required" %></li>
+                    <% end %>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- spaces code -->
+            <div class="col-md-2">
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Common Areas</h3>
+                </div>
+                <div class="panel-body">
+                  <ul>
+                    <% if @building.space.storage == true  %>
+                    <li><%= "Storage" %></li>
+                    <% end %>
+                    <% if @building.space.bike_storage == true  %>
+                    <li><%= "Bike Storage" %></li>
+                    <% end %>
+                    <% if @building.space.party_room == true  %>
+                    <li><%= "Party Room" %></li>
+                    <% end %>
+                    <% if @building.space.sundeck == true  %>
+                    <li><%= "Sundeck" %></li>
+                    <% end %>
+                    <% if @building.space.parking_leased == true  %>
+                    <li><%= "Leased Parking" %></li>
+                    <% end %>
+                    <% if @building.space.parking_owned == true  %>
+                    <li><%= "Deeded Parking" %></li>
+                    <% end %>
+                    <% if @building.space.wine_cellar == true  %>
+                    <li><%= "Wine Cellar" %></li>
+                    <% end %>
+                    <% if @building.space.humidor == true  %>
+                    <li><%= "Humidor" %></li>
+                    <% end %>
+                    <% if @building.space.dog_run == true  %>
+                    <li><%= "Dog Run" %></li>
+                    <% end %>
+                    <% if @building.space.lounge == true  %>
+                    <li><%= "Lounge" %></li>
+                    <% end %>
+                    <% if @building.space.biz_center == true  %>
+                    <li><%= "Business Center" %></li>
+                    <% end %>
+                    <% if @building.space.conf_room == true  %>
+                    <li><%= "Conference Room" %></li>
+                    <% end %>
+                    <% if @building.space.theater == true  %>
+                    <li><%= "Theater" %></li>
+                    <% end %>
+                    <% if @building.space.guest_parking == true  %>
+                    <li><%= "Guest Parking" %></li>
+                    <% end %>
+                    <% if @building.space.guest_stay == true  %>
+                    <li><%= "Guest Accomodations" %></li>
+                    <% end %>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="panel panel-primary">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">Comments About <%= @building.name %></h3>
+                  </div>
+                  <div class="media">
+                    <div class="media-body">
+                      <form role="form" action="/create_comment" class="form-inline">
+                        <div class="form-group">
+                          <div class="col-sm-10">
+                            <textarea id="content" type="text" placeholder="Comment on this building." name="content" class="form-control"></textarea>
+                          </div>
+
+                          <input type="hidden" placeholder="commenter_id" name="commenter_id" class="form-control" value="<%= current_user.id %>">
+
+                          <input type="hidden" placeholder="building_id" name="building_id" class="form-control" value="<%= @building.id %>">
+                        </div>
+                        <input type="submit" class="btn btn-success">
+                      </form>
+                    </div>
+                  </div>
+                  <!-- <div class="panel-body"> -->
+                  <div class="well well-md">
+                    <% @building.comments.each do |building_comment| %>
+                    <small><%= time_ago_in_words(building_comment.created_at) %> ago</small>
+                    <p><strong><%= building_comment.user.email %></strong>: <%= building_comment.content %></p>
+                    <% end %>
+                    <% else %>
+                    Please <a href="/users/sign_in">sign in</a> to view comment on <%= @building.name %>.
+                    <% end %>
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </body>
-  </html>
+      </body>
+      </html>

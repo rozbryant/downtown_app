@@ -1,29 +1,67 @@
-<h2>Sign up</h2>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>At Home Downtown: Home</title>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+  <div class="container-fluid">
+    <div class="row">
+      <img src="http://i1322.photobucket.com/albums/u575/rozbryant/Skyline_zps56b096d0.jpg" id="bg" alt="Chicago Skyline">
+    </div>
   </div>
+  <div class="container">
+    <div class="row" height=100px>
+      <div class="col-md-12">
+      </div>
+      <div class="row">
+        <div class="col-md-8">
+          <div class="jumbotron">
+            <h2>Search Chicago Condo Buildings</h2>
+            <p>Don't just fall in love with an apartment. Make sure the building fits.</p>
+            <% if current_user.present? %>
+            <div class="form-group">
+              <label class="control-label" for="focusedInput">Start here.</label>
+              <form action="/_search" class="form-horizontal">
+                <%= form_tag :controller => 'buildings', :action => 'search', :method => 'get' do %>
+                <%= text_field_tag :search, params[:search] %>
+                <%= submit_tag "Search", :name => nil %>
+              </form>
+              <% end %>
+              <% else %>
+              <h5>Start here.</h5>
+              <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @validatable %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+              <div class="field">
+                <%= f.label :email %><br />
+                <%= f.email_field :email, autofocus: true %>
+              </div>
+
+              <div class="field">
+                <%= f.label :password %>
+                <% if @validatable %>
+                <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <% end %><br />
+                <%= f.password_field :password, autocomplete: "off" %>
+              </div>
+
+              <div class="field">
+                <%= f.label :password_confirmation %><br />
+                <%= f.password_field :password_confirmation, autocomplete: "off" %>
+              </div>
+
+              <div class="actions">
+                <%= f.submit "Sign up" %>
+              </div>
+              <% end %>
+
+              <%= render "devise/shared/links" %>
+
+              <% end %>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+  </html>

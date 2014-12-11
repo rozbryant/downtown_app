@@ -17,9 +17,9 @@ class FavoritingsController < ApplicationController
     @favoriting.favorited_by = params[:favorited_by]
 
     if @favoriting.save
-      redirect_to "/favoritings", :notice => "Favoriting created successfully."
+      redirect_to :back, :notice => "Favoriting created successfully."
     else
-      render 'new'
+      redirect_to :back, :notice => "Already saved to favorites."
     end
   end
 
