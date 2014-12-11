@@ -61,10 +61,14 @@
           <h3 class="panel-title">My Favorites</h3>
         </div>
         <div class="panel-body">
+
           <% @user.favoritings.each do |favorite| %>
-          <a href="/buildings/<%= favorite.building.id %>"><img src="<%= favorite.building.image_url %>" data-src="holder.js/100%x180" alt="Photo not found" height="70" width="70"> <%= favorite.building.name %>
-            <%= favorite.building.address %></a>
+          <p><a href="/buildings/<%= favorite.building.id %>"><img src="<%= favorite.building.image_url %>" data-src="holder.js/100%x180" alt="Photo not found" height="70" width="70"> <%= favorite.building.name %></a>
+            <a href="/delete_favoriting/<%= favorite.id %>" class="btn btn-danger">
+              <i class="fa fa-trash-o"></i>
+            </a>
             <% end %>
+            </p>
           </div>
         </div>
       </div>
@@ -74,11 +78,24 @@
             <h3 class="panel-title">Notifications</h3>
           </div>
           <div class="panel-body">
+          <table>
+          <thead>
+          <tr>
+          <th>Building</th>
+          <th>Units?</th>
+          <th>Buyers?</th>
+          </tr>
+          </thead>
+          <tbody>
             <% @user.followings.each do |following| %>
-            <%= following.building.name %>
-            <%= following.buyer %>
-            <%= following.seller %>
+          <tr>
+            <td><%= following.building.name %></td>
+            <td><%= following.buyer %></td>
+            <td><%= following.seller %></td>
             <% end %>
+            </tr>
+            </tbody>
+            </table>
           </div>
         </div>
       </div>
@@ -86,18 +103,18 @@
     <div class="row">
       <div class="col-md-12">
         <div class="panel panel-primary">
-                   <div class="panel-heading">
-            <h3 class="panel-title">My Comments</h3>
-          </div>
-          <% @user.comments.each do |comment| %>
-          <small><%= time_ago_in_words(comment.created_at) %> ago</small>
-          <p>
-            <strong><%= comment.building.name %></strong>
-            <%= comment.content %>
-          </p>
-          <% end %>
+         <div class="panel-heading">
+          <h3 class="panel-title">Your Building Chatter</h3>
         </div>
+        <% @user.comments.each do |comment| %>
+        <small><%= time_ago_in_words(comment.created_at) %> ago</small>
+        <p>
+          <strong><%= comment.building.name %></strong>
+          <%= comment.content %>
+        </p>
+        <% end %>
       </div>
     </div>
-    <% end %>
   </div>
+  <% end %>
+</div>
