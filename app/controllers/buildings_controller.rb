@@ -10,8 +10,7 @@ class BuildingsController < ApplicationController
   end
 
   def  splash
-  @buildings = Building.all
-    render 'splash'
+  render 'splash'
 end
 
   def show

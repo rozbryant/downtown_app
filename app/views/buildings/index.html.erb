@@ -5,53 +5,34 @@
 <a href="/buildings/new" class="btn btn-primary">Add a New Building</a></p>
 </div>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>ID</th>
-      <th>Address</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Zip</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @buildings.each do |building| %>
-      <tr>
-        <td>
-        <a href="/buildings/<%= building.id %>" class="thumbnail">
-        <img src="<%= building.image_url %>" data-src="holder.js/100%x180" alt="Photo not found" height="90" width="90">
-        </a></td>
-        <td><%= building.id %></td>
-        <td><%= building.name %></td>
-        <td><%= building.address %></td>
-        <td><%= building.city %></td>
-        <td><%= building.state %></td>
-        <td><%= building.zip %></td>
-        <td>
-          <a href="/buildings/<%= building.id %>" class="btn btn-primary">
-            <i class="fa fa-search-plus"></i>
-          </a>
-        </td>
-        <td>
-          <a href="/buildings/<%= building.id %>/edit" class="btn btn-warning">
-            <i class="fa fa-edit"></i>
-          </a>
-        </td>
-        <td>
-          <a href="/delete_building/<%= building.id %>" class="btn btn-danger">
-            <i class="fa fa-trash-o"></i>
-          </a>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-  <% else %>
-  Please <a href="/users/sign_in">sign in</a> to view buildings.
-  <% end %>
-</table>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Condo Buildings: <%= params[:search] %></h3>
+        </div>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-xs-6 col-md-3">
+            <% @buildings.each do |building| %>
+            <a href="/buildings/<%= building.id %>" class="thumbnail" align="center">
 
+              <img src="<%= building.image_url %>" data-src="holder.js/100%x180" alt="Photo not found" height="90" width="90">
+              <%= building.name %>
+              <p><%= building.address %> <%= building.zip %></p>
+            </a>
+          </div>
+          <div class="col-xs-6 col-md-3">
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+<% end %>
