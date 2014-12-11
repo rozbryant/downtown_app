@@ -68,53 +68,72 @@
               <i class="fa fa-trash-o"></i>
             </a>
             <% end %>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h3 class="panel-title">Notifications</h3>
-          </div>
-          <div class="panel-body">
-          <table>
-          <thead>
-          <tr>
-          <th>Building</th>
-          <th>Units?</th>
-          <th>Buyers?</th>
-          </tr>
-          </thead>
-          <tbody>
-            <% @user.followings.each do |following| %>
-          <tr>
-            <td><%= following.building.name %></td>
-            <td><%= following.buyer %></td>
-            <td><%= following.seller %></td>
-            <% end %>
-            </tr>
-            </tbody>
-            </table>
-          </div>
+          </p>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="panel panel-primary">
-         <div class="panel-heading">
-          <h3 class="panel-title">Your Building Chatter</h3>
+    <div class="col-md-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Notifications</h3>
         </div>
-        <% @user.comments.each do |comment| %>
-        <small><%= time_ago_in_words(comment.created_at) %> ago</small>
-        <p>
-          <strong><%= comment.building.name %></strong>
-          <%= comment.content %>
-        </p>
-        <% end %>
+        <div class="panel-body">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Building</th>
+                <th>Units?</th>
+                <th>Buyer Interest?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @user.followings.each do |following| %>
+              <tr>
+                <td>
+                  <%= following.building.name %>
+                </td>
+                  <div class="form-group">
+                    <input type="hidden" placeholder="follower_id" name="follower_id" class="form-control" value="<%= current_user.id %>">
+                    <input type="hidden" placeholder="building_id" name="building_id" class="form-control" value="<%= following.building_id %>">
+                    <td>
+                      <input type="checkbox" id="buyer" name="buyer" value="1" <%= "checked" if following.buyer %>>
+                    </td>
+                    <td>
+                      <input type="checkbox" id="seller" name="seller" value="1" <%= "checked" if following.seller %>>
+                    </td>
+                    <td>
+                      <a href="/update_following/<%= following.id %>" class="btn btn-warning">
+                        <i class="fa fa-edit"></i>
+                      </a>
+                      <a href="/delete_following/<%= following.id %>" class="btn btn-danger">
+                        <i class="fa fa-trash-o"></i>
+                      </a>
+                    </td>
+                    <% end %>
+                  </div>
+                </form>
+                </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
-  <% end %>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-primary">
+       <div class="panel-heading">
+        <h3 class="panel-title">Your Building Chatter</h3>
+      </div>
+      <% @user.comments.each do |comment| %>
+      <small><%= time_ago_in_words(comment.created_at) %> ago</small>
+      <p>
+        <strong><%= comment.building.name %></strong>
+        <%= comment.content %>
+      </p>
+      <% end %>
+    </div>
+  </div>
+</div>
+<% end %>
 </div>

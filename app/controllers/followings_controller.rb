@@ -40,9 +40,9 @@ class FollowingsController < ApplicationController
     @following.note = params[:note]
 
     if @following.save
-      redirect_to "/followings", :notice => "Following updated successfully."
+      redirect_to :back, :notice => "Following updated successfully."
     else
-      render 'edit'
+      redirect_to :back, :notice => "Following not updated."
     end
   end
 
@@ -51,6 +51,6 @@ class FollowingsController < ApplicationController
 
     @following.destroy
 
-    redirect_to "/followings", :notice => "Following deleted."
+    redirect_to :back, :notice => "Following deleted."
   end
 end
