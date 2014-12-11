@@ -1,3 +1,4 @@
+<% if current_user.present? %>
 <div class="page-header">
   <h1>Comment #<%= @comment.id %></h1>
 </div>
@@ -7,9 +8,11 @@
   <dd><%= @comment.content %></dd>
 
   <dt>Commenter</dt>
-  <dd><%= @comment.commenter_id %></dd>
+  <dd><%= @comment.user.email %></dd>
 
   <dt>Building</dt>
-  <dd><%= @comment.building_id %></dd>
-
+  <dd><%= @comment.building.name %></dd>
+<% else %>
+  Please <a href="/users/sign_in">sign in</a> to view.
+  <% end %>
 </dl>

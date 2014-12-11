@@ -1,3 +1,4 @@
+<% if current_user.present? %>
 <% if @comment.errors.any? %>
   <% @comment.errors.full_messages.each do |message| %>
     <div class="alert alert-dismissable alert-danger">
@@ -50,6 +51,9 @@
         </div>
       </div>
     </form>
+    <% else %>
+  Please <a href="/users/sign_in">sign in</a> to view buildings.
+  <% end %>
   </div>
 </div>
 

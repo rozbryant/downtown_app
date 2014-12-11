@@ -1,4 +1,5 @@
 <div class="page-header">
+<% if current_user.present? %>
   <h1>Comments</h1>
 </div>
 
@@ -41,4 +42,7 @@
     <% end %>
   </tbody>
 </table>
+<% else %>
+  Please <a href="/users/sign_in">sign in</a> to view buildings.
+  <% end %>
 

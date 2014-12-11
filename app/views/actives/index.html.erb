@@ -1,5 +1,6 @@
 <div class="page-header">
-  <h1>Actives</h1>
+  <% if current_user.present? %>
+<h1>Actives</h1>
 </div>
 
 <p><a href="/actives/new" class="btn btn-primary">Add a New Active</a></p>
@@ -53,3 +54,6 @@
     <% end %>
   </tbody>
 </table>
+<% else %>
+  Please <a href="/users/sign_in">sign in</a> to view.
+  <% end %>

@@ -243,31 +243,31 @@
                   <form role="form" action="/create_comment" class="form-inline">
                     <div class="form-group">
                       <div class="col-sm-10">
-                        <textarea  rows="4" cols="20" id="content" type="text" placeholder="Comment on this building." name="content" class="form-control"></textarea>
+                        <textarea id="content" type="text" placeholder="Comment on this building." name="content" class="form-control"></textarea>
                       </div>
 
                       <input type="hidden" placeholder="commenter_id" name="commenter_id" class="form-control" value="<%= current_user.id %>">
 
-                    <input type="hidden" placeholder="building_id" name="building_id" class="form-control" value="<%= @building.id %>">
+                      <input type="hidden" placeholder="building_id" name="building_id" class="form-control" value="<%= @building.id %>">
                     </div>
                     <input type="submit" class="btn btn-success">
                   </form>
                 </div>
               </div>
               <!-- <div class="panel-body"> -->
-                <div class="well well-md">
-                  <% @building.comments.each do |building_comment| %>
-                  <small><%= time_ago_in_words(building_comment.created_at) %> ago</small>
-                  <p><strong><%= building_comment.user.first_name %></strong>: <%= building_comment.content %></p>
-                    <% end %>
-                    <% else %>
-                    Please sign in to view
-                    <% end %>
-                  </p>
-                </div>
-              </div>
+              <div class="well well-md">
+                <% @building.comments.each do |building_comment| %>
+                <small><%= time_ago_in_words(building_comment.created_at) %> ago</small>
+                <p><strong><%= building_comment.user.email %></strong>: <%= building_comment.content %></p>
+                <% end %>
+                <% else %>
+                Please <a href="/users/sign_in">sign in</a> to view comment on <%= @building.name %>.
+                <% end %>
+              </p>
             </div>
           </div>
         </div>
-      </body>
-      </html>
+      </div>
+    </div>
+  </body>
+  </html>
