@@ -1,3 +1,4 @@
+<% if current_user.present? %>
 <% if @stat.errors.any? %>
   <% @stat.errors.full_messages.each do |message| %>
     <div class="alert alert-dismissable alert-danger">
@@ -80,5 +81,8 @@
         </div>
       </div>
     </form>
+    <% else %>
+  Please <a href="/users/sign_in">sign in</a> to view.
+  <% end %>
   </div>
 </div>

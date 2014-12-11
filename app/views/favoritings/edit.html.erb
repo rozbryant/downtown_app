@@ -1,3 +1,4 @@
+<% if current_user.present? %>
 <% if @favoriting.errors.any? %>
   <% @favoriting.errors.full_messages.each do |message| %>
     <div class="alert alert-dismissable alert-danger">
@@ -30,7 +31,7 @@
           Favorited by
         </label>
         <div class="col-sm-10">
-          <input type="text" id="favorited_by" name="favorited_by" placeholder="Favorited by" class="form-control" value="<%= @favoriting.user.name %>">
+          <input type="text" id="favorited_by" name="favorited_by" placeholder="Favorited by" class="form-control" value="<%= @favoriting.user.email  %>">
         </div>
       </div>
 
@@ -40,5 +41,8 @@
         </div>
       </div>
     </form>
+<% else %>
+  Please <a href="/users/sign_in">sign in</a> to view buildings.
+  <% end %>
   </div>
 </div>

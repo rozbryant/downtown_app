@@ -4,9 +4,9 @@
 
 <dl class="dl-horizontal">
   <dt>Building</dt>
-  <dd><%= @favoriting.building_id %></dd>
+  <dd><%= @favoriting.building.name %></dd>
 
   <dt>Favorited by</dt>
-  <dd><%= @favoriting.favorited_by %></dd>
+  <dd><%= @favoriting.user.email %></dd>
 
 </dl>

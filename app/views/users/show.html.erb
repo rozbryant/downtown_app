@@ -1,5 +1,6 @@
 <div class="page-header">
-  <h1>My Account</h1>
+  <% if current_user.present? %>
+ <h1>My Account</h1>
 </div>
 
 <dl class="dl-horizontal">
@@ -58,5 +59,7 @@
 
 
   <% end %>
-
+<% else %>
+  Please <a href="/users/sign_in">sign in</a> to view.
+  <% end %>
 </dl>

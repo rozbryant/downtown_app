@@ -1,4 +1,5 @@
 <div class="page-header">
+ <% if current_user.present? %>
   <h1>Followings</h1>
 </div>
 
@@ -21,7 +22,7 @@
   <tbody>
     <% @followings.each do |following| %>
       <tr>
-        <td><%= following.user.name %></td>
+        <td><%= following.user.email %></td>
         <td><%= following.building.name %></td>
         <td><%= following.buyer %></td>
         <td><%= following.seller %></td>
@@ -45,4 +46,6 @@
     <% end %>
   </tbody>
 </table>
-
+<% else %>
+  Please <a href="/users/sign_in">sign in</a> to view.
+  <% end %>

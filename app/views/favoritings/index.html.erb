@@ -1,5 +1,6 @@
 <div class="page-header">
-  <h1>Favoritings</h1>
+ <% if current_user.present? %>
+ <h1>Favoritings</h1>
 </div>
 
 <p><a href="/favoritings/new" class="btn btn-primary">Add a New Favoriting</a></p>
@@ -19,7 +20,7 @@
     <% @favoritings.each do |favoriting| %>
       <tr>
         <td><%= favoriting.building.name %></td>
-        <td><%= favoriting.user.name %></td>
+        <td><%= favoriting.user.email %></td>
         <td>
           <a href="/favoritings/<%= favoriting.id %>" class="btn btn-primary">
             <i class="fa fa-search-plus"></i>
@@ -39,4 +40,6 @@
     <% end %>
   </tbody>
 </table>
-
+<% else %>
+  Please <a href="/users/sign_in">sign in</a> to view buildings.
+  <% end %>

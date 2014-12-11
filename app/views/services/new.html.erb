@@ -1,3 +1,4 @@
+<% if current_user.present? %>
 <% if @service.errors.any? %>
   <% @service.errors.full_messages.each do |message| %>
     <div class="alert alert-dismissable alert-danger">
@@ -185,6 +186,9 @@
         </div>
       </div>
     </form>
+    <% else %>
+  Please <a href="/users/sign_in">sign in</a> to view.
+  <% end %>
   </div>
 </div>
 

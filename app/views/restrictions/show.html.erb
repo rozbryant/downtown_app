@@ -1,10 +1,11 @@
 <div class="page-header">
+ <% if current_user.present? %>
   <h1>Restriction #<%= @restriction.id %></h1>
 </div>
 
 <dl class="dl-horizontal">
   <dt>Building</dt>
-  <dd><%= @restriction.building_id %></dd>
+  <dd><%= @restriction.building.name %></dd>
 
   <dt>No rental</dt>
   <dd><%= @restriction.no_rental %></dd>
@@ -47,5 +48,7 @@
 
   <dt>Note</dt>
   <dd><%= @restriction.note %></dd>
-
+<% else %>
+  Please <a href="/users/sign_in">sign in</a> to view.
+  <% end %>
 </dl>
