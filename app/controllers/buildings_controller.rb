@@ -9,6 +9,10 @@ class BuildingsController < ApplicationController
     render '_search'
   end
 
+  def  splash
+  @buildings = Building.all
+    render 'splash'
+end
 
   def show
     @building = Building.find(params[:id])

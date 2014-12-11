@@ -11,6 +11,7 @@ class AssignmentsController < ApplicationController
     @assignment = Assignment.new
   end
 
+
   def create
     @assignment = Assignment.new
     @assignment.building_id = params[:building_id]

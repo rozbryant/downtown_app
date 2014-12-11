@@ -12,4 +12,7 @@ class Assignment < ActiveRecord::Base
   validates :area, :presence => true
   validates :area_id, :uniqueness => { :scope => :building_id }
 
+def self.search(query)
+  where('name LIKE ?', "%#{query}%" )
+    end
 end
