@@ -20,10 +20,9 @@
           <div class="col-xs-6 col-md-3">
             <% @buildings.each do |building| %>
             <a href="/buildings/<%= building.id %>" class="thumbnail" align="center">
-
               <img src="<%= building.image_url %>" data-src="holder.js/100%x180" alt="Photo not found" height="90" width="90">
               <%= building.name %>
-              <p><%= building.address %> <%= building.zip %></p>
+              <p><%= building.address %>, <%= building.zip %></p>
             </a>
           </div>
           <div class="col-xs-6 col-md-3">
