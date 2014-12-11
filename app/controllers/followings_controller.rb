@@ -20,7 +20,7 @@ class FollowingsController < ApplicationController
     @following.note = params[:note]
 
     if @following.save
-      redirect_to "/followings", :notice => "Following created successfully."
+      redirect_to :back, :notice => "Following created successfully."
     else
       render 'new'
     end
