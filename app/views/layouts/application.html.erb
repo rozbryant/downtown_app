@@ -21,31 +21,31 @@
  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.0/paper/bootstrap.min.css">
  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"> -->
 
-  <style>
-    /* Only necessary if you are using navbar-fixed-top */
-    body {
-      padding-top: 100px;
-    }
+ <style>
+  /* Only necessary if you are using navbar-fixed-top */
+  body {
+    padding-top: 100px;
+  }
 
-    #bg {
-  position: fixed;
-  top: 60px;
-  left: 0;
+  #bg {
+    position: fixed;
+    top: 60px;
+    left: 0;
 
-  /* Preserve aspect ratio */
-  min-width: 100%;
-  min-height: 100%;
-}
-  </style>
+    /* Preserve aspect ratio */
+    min-width: 100%;
+    min-height: 100%;
+  }
+</style>
 
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+<%= stylesheet_link_tag    "application", :media => "all" %>
+<%= javascript_include_tag "application" %>
+<%= csrf_meta_tags %>
 
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 </head>
 <body>
   <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -66,6 +66,7 @@
 
         <li><a href="/buildings">Buildings</a></li>
         <li><a href="/areas">Neighborhoods</a></li>
+
         <!-- <li><a href="/users">Users</a></li>
         <li><a href="/comments">Comments</a></li>
         <li><a href="/favoritings">Favoritings</a></li>
@@ -76,11 +77,11 @@
 
       <ul class="nav navbar-nav navbar-right">
         <% if current_user.present? %>
-          <li><a href="/users/edit"><%= current_user.email %></a></li>
-          <li><a href="/users/sign_out" data-method="delete">Sign out</a></li>
+        <li><a href="/users/edit"><%= current_user.email %></a></li>
+        <li><a href="/users/sign_out" data-method="delete">Sign out</a></li>
         <% else %>
-          <li><a href="/users/sign_up">Sign up</a></li>
-          <li><a href="/users/sign_in">Sign in</a></li>
+        <li><a href="/users/sign_up">Sign up</a></li>
+        <li><a href="/users/sign_in">Sign in</a></li>
         <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
@@ -88,17 +89,17 @@
 
   <div class="container">
     <% if notice.present? %>
-      <div class="alert alert-dismissable alert-success">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <%= notice %>
-      </div>
+    <div class="alert alert-dismissable alert-success">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= notice %>
+    </div>
     <% end %>
 
     <% if alert.present? %>
-      <div class="alert alert-dismissable alert-warning">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <%= alert %>
-      </div>
+    <div class="alert alert-dismissable alert-warning">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= alert %>
+    </div>
     <% end %>
 
     <%= yield %>
